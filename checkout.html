@@ -1,560 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
-
-    
-
 <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
-        <meta name="description" content="Glamour HTML5 Template">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — Dollar Fashion</title>
+  <link rel="shortcut icon" href="assets/media/favicon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
 
-        <title>Dollar - Clothing Store Html</title>
-
-        <!-- Favicon -->
-        <link rel="shortcut icon" type="image/x-icon" href="assets/media/favicon.png">
-
-        <!-- All CSS files -->
-        <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/vendor/font-awesome.css">
-        <link rel="stylesheet" href="assets/css/vendor/slick.css">
-        <link rel="stylesheet" href="assets/css/vendor/slick-theme.css">
-        <link rel="stylesheet" href="assets/css/app.css">
-
-    </head>
-
-    <body class="no-scroll-y">
-        <!-- Preloader -->
-        <section>
-            <div id="preloader">
-                <div id="ctn-preloader" class="ctn-preloader">
-                    <div class="animation-preloader">
-                        <div class="spinner"></div>
-                        <div class="txt-loading">
-                            <span data-text-preloader="D" class="letters-loading">D</span>
-                            <span data-text-preloader="O" class="letters-loading">O</span>
-                            <span data-text-preloader="L" class="letters-loading">L</span>
-                            <span data-text-preloader="L" class="letters-loading">L</span>
-                            <span data-text-preloader="A" class="letters-loading">A</span>
-                            <span data-text-preloader="R" class="letters-loading">R</span>
-                        </div>
-                    </div>	
-                    <div class="loader-section section-left"></div>
-                    <div class="loader-section section-right"></div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Back To Top Start -->
-        <a href="#main-wrapper" id="backto-top" class="back-to-top">
-            <i class="fas fa-angle-up"></i>
+<div class="announcement-bar">Free shipping on orders over R500 &nbsp;·&nbsp; Secure checkout</div>
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="logo">Dollar<span>.</span></a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="cart.html">Cart</a>
+      </nav>
+      <div class="header-actions">
+        <a href="cart.html" style="position:relative">
+          <i class="far fa-shopping-bag"></i>
+          <span class="cart-count" id="cartCount">0</span>
         </a>
-        <!-- Main Wrapper Start -->
-        <div id="main-wrapper" class="main-wrapper overflow-hidden">
-            <!-- Top Bar Start  -->
-            <div class="top-bar">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-5 col-sm-6">
-                            <div class="social-icons">
-                                <ul class="list-unstyled d-flex">
-                                    <li><a href="#"><img src="assets/media/icon/icon.png" alt=""></a></li>
-                                    <li><a href="#"><img src="assets/media/icon/Vector.png" alt=""></a></li>
-                                    <li><a href="#"><img src="assets/media/icon/Vector-1.png" alt=""></a></li>
-                                    <li><a href="#"><img src="assets/media/icon/Vector-2.png" alt=""></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 d-lg-block d-none">
-                            <a class="navbar-brand " href="index-2.html"><img alt=""  src="assets/media/logo.png"></a>
-                        </div>
-                        <div class="col-lg-5 col-sm-6">
-                            <div class="important-links">
-                                <ul class="list-unstyled d-flex">
-                                    <li><a href="#"><img src="assets/media/icon/user.png" alt=""></a></li>
-                                    <li><a href="#"><img src="assets/media/icon/like.png" alt=""></a></li>
-                                    <li><a  href="javascript:;" class="cart-button"><img src="assets/media/icon/bag.png" alt=""></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Header Area Start -->
-            <header class="header">
-                <div class="container">
-                    <nav class="navbar navbar-expand-lg">
-                        <a class="navbar-brand d-lg-none" href="index-2.html"><img alt=""  src="assets/media/logo.png"></a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar"><i class="fas fa-bars"></i></button>
-                        <div class="collapse navbar-collapse" id="mynavbar">
-                            <ul class="navbar-nav mainmenu m-0">
-                                <li class="menu-item"><a href="index-2.html">Home</a></li>
-                                <li class="menu-item"><a href="shop.html">Shop</a></li>
-                                <li class="menu-item"><a href="about.html">About</a></li>
-                                <li class="menu-item-has-children">
-                                    <a href="javascript:void(0);" class="active">Pages</a>
-                                    <ul class="submenu">
-                                        <li class="menu-item"><a href="product-detail.html">Product Detail</a></li>
-                                        <li class="menu-item"><a href="cart.html">Cart</a></li>
-                                        <li class="menu-item"><a href="checkout.html"  class="active">Checkout</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <form method="get" action="https://uiparadox.co.uk/public/templates/glamour/v2/shop.html" class="d-lg-block d-none">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search">
-                                <button type="submit" class="input-group-text"><i class="fal fa-search"></i></button>
-                            </div>
-                        </form>
-                    </nav>  
-                </div>
-            </header>
-            <!-- Header Area end -->
+        <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobileNav" style="display:none;padding:16px 24px;border-top:1px solid var(--border);background:var(--white);">
+    <a href="index.html" style="display:block;padding:10px 0;font-size:13px;letter-spacing:1px;text-transform:uppercase;border-bottom:1px solid var(--border);">Home</a>
+    <a href="shop.html" style="display:block;padding:10px 0;font-size:13px;letter-spacing:1px;text-transform:uppercase;border-bottom:1px solid var(--border);">Shop</a>
+    <a href="cart.html" style="display:block;padding:10px 0;font-size:13px;letter-spacing:1px;text-transform:uppercase;">Cart</a>
+  </div>
+</header>
 
-            <!-- Page Banner start -->
-            <section class="page-start-banner">
-                <div class="container">
-                    <div class="content">
-                        <h2 class="title">Checkout</h2>
-                    </div>
-                </div>
-            </section>
-            <!-- Page Banner End -->
+<section class="page-banner">
+  <div class="container">
+    <h1>Checkout</h1>
+    <nav class="breadcrumb">
+      <a href="index.html">Home</a><span class="sep">/</span>
+      <a href="cart.html">Cart</a><span class="sep">/</span>
+      <span>Checkout</span>
+    </nav>
+  </div>
+</section>
 
-            <!-- Cart Area start -->
-            <section class="checkout pt-100 pb-50">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-6 mb-50 mb-xl-0">
-                            <div class="heading">
-                                <h4>Shipping Detail</h4>
-                            </div>
-                            <div class="design-block shipping">
-                                <form action="https://uiparadox.co.uk/public/templates/glamour/v2/index.html">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="input-group mb-32">
-                                                <input type="text" class="form-control" id="_firstname" name="first_name" required placeholder="First Name">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="input-group mb-32">
-                                                <input type="text" class="form-control" id="_lastname" name="last_name" required placeholder="Last Name">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="input-group mb-32">
-                                                <input type="email" class="form-control" id="_email" name="email" required placeholder="Email">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="input-group mb-32">
-                                                <input type="text" class="form-control" id="_phone" name="phone" required placeholder="Phone Number">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="input-group mb-32">
-                                                <input type="text" class="form-control" id="_country" name="country" required placeholder="Country">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="input-group mb-32">
-                                                <input type="text" class="form-control" id="_state" name="state" required placeholder="State / County">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="input-group mb-32">
-                                                <input type="text" class="form-control" id="_houseadress" name="house_address" required placeholder="House no and street name">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="input-group mb-32">
-                                                <input type="text" class="form-control" id="_appartmentadress" name="apartment_address" placeholder="Apartment, suite, (optional)">
-                                            </div>
-                                        </div>
-                                        <div class="formGroup2">
-                                            <input type="checkbox" id="keepcheck">
-                                            <label for="keepcheck"> Billing Address Same As Shipping Address</label>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="heading">
-                                <h4>Billing Detail</h4>
-                            </div>
-                            <div class="design-block billing">
-                                <form action="https://uiparadox.co.uk/public/templates/glamour/v2/index.html">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="input-group mb-32">
-                                                <input type="text" class="form-control" id="firstname" name="first_name" required placeholder="First Name">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="input-group mb-32">
-                                                <input type="text" class="form-control" id="lastname" name="last_name" required placeholder="Last Name">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="input-group mb-32">
-                                                <input type="email" class="form-control" id="email" name="email" required placeholder="Email">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="input-group mb-32">
-                                                <input type="text" class="form-control" id="phone" name="phone" required placeholder="Phone Number">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="input-group mb-32">
-                                                <input type="text" class="form-control" id="country" name="country" required placeholder="Country">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="input-group mb-32">
-                                                <input type="text" class="form-control" id="state" name="state" required placeholder="State / County">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="input-group mb-32">
-                                                <input type="text" class="form-control" id="houseadress" name="house_address" required placeholder="House no and street name">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="input-group mb-32">
-                                                <input type="text" class="form-control" id="appartmentadress" name="apartment_address" placeholder="Apartment, suite, (optional)">
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- Cart Area end -->
-
-            <!-- Cart Area start -->
-            <section class="cart pt-50 pb-100">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-8 col-lg-12 d-lg-block d-none">
-                            <table class="cart-table-lg">
-                                <tr class="upper-row">
-                                    <td class="img-block" rowspan="2"><img src="assets/media/products/cart/c-1.png" alt=""></td>
-                                    <td class="title"><a href="product-detail.html">Item:<span> Lipstick</span></a></td>
-                                    <td class="title text-center">Price</td>
-                                    <td class="title text-center">Quantity</td>
-                                    <td class="title text-center pad-right">Sub Total</td>
-                                </tr>
-                                <tr class="bottom-row">
-                                    <td class="mesure"><h6>SKU: <span>25 819</span></h6></td>
-                                    <td class="text-center price-number">R318.00</td>
-                                    <td class="text-center">
-                                        <div class="quantity quantity-wrap">
-                                            <input class="decrement" type="button" value="-" >
-                                            <input type="text" name="quantity" value="1" maxlength="2" size="1" class="number">
-                                            <input class="increment" type="button" value="+" >
-                                        </div>
-                                    </td>
-                                    <td class="text-center price-number">R318.00</td>
-                                </tr>
-                            </table>
-                            <table class="cart-table-lg">
-                                <tr class="upper-row">
-                                    <td class="img-block" rowspan="2"><img src="assets/media/products/cart/c-2.png" alt=""></td>
-                                    <td class="title"><a href="product-detail.html">Item:<span> Hair Color</span></a></td>
-                                    <td class="title text-center">Price</td>
-                                    <td class="title text-center">Quantity</td>
-                                    <td class="title text-center pad-right">Sub Total</td>
-                                </tr>
-                                <tr class="bottom-row">
-                                    <td class="mesure"><h6>SKU: <span>25 819</span></h6></td>
-                                    <td class="text-center price-number">R99.00</td>
-                                    <td class="text-center">
-                                        <div class="quantity quantity-wrap">
-                                            <input class="decrement" type="button" value="-" >
-                                            <input type="text" name="quantity" value="1" maxlength="2" size="1" class="number">
-                                            <input class="increment" type="button" value="+" >
-                                        </div>
-                                    </td>
-                                    <td class="text-center price-number">R99.00</td>
-                                </tr>
-                            </table>
-                            <table class="cart-table-lg">
-                                <tr class="upper-row">
-                                    <td class="img-block" rowspan="2"><img src="assets/media/products/cart/c-3.png" alt=""></td>
-                                    <td class="title"><a href="product-detail.html">Item:<span> Perfume</span></a></td>
-                                    <td class="title text-center">Price</td>
-                                    <td class="title text-center">Quantity</td>
-                                    <td class="title text-center pad-right">Sub Total</td>
-                                </tr>
-                                <tr class="bottom-row">
-                                    <td class="mesure"><h6>SKU: <span>25 819</span></h6></td>
-                                    <td class="text-center price-number">R211.00</td>
-                                    <td class="text-center">
-                                        <div class="quantity quantity-wrap">
-                                            <input class="decrement" type="button" value="-" >
-                                            <input type="text" name="quantity" value="1" maxlength="2" size="1" class="number">
-                                            <input class="increment" type="button" value="+" >
-                                        </div>
-                                    </td>
-                                    <td class="text-center price-number">R211.00</td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div class="col-12 d-lg-none d-block">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="cart-table-sm">
-                                        <div class="content-block">
-                                            <div class="text-center">
-                                                <img src="assets/media/products/cart/c-2.png" alt=""><br>
-                                                <a class="title" href="product-detail.html">Item:<span> Hair Color Jar</span></a><br>
-                                                <h6 class="mesure">SKU: <span>25 819</span></h6>
-                                            </div>
-                                            <div class="cart-row">
-                                                <p>Price</p>
-                                                <span>R99.00</span>
-                                            </div>
-                                            <div class="cart-row">
-                                                <p>Quantity</p>
-                                                <div class="quantity quantity-wrap">
-                                                    <input class="decrement" type="button" value="-" >
-                                                    <input type="text" name="quantity" value="1" maxlength="2" size="1" class="number">
-                                                    <input class="increment" type="button" value="+" >
-                                                </div>
-                                            </div>
-                                            <div class="cart-row">
-                                                <p>Sub Total</p>
-                                                <span>R99.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="cart-table-sm">
-                                        <div class="content-block">
-                                            <div class="text-center">
-                                                <img src="assets/media/products/cart/c-3.png" alt=""><br>
-                                                <a class="title" href="product-detail.html">Item:<span> Perfume</span></a><br>
-                                                <h6 class="mesure">SKU: <span>25 819</span></h6>
-                                            </div>
-                                            <div class="cart-row">
-                                                <p>Price</p>
-                                                <span>R199.00</span>
-                                            </div>
-                                            <div class="cart-row">
-                                                <p>Quantity</p>
-                                                <div class="quantity quantity-wrap">
-                                                    <input class="decrement" type="button" value="-" >
-                                                    <input type="text" name="quantity" value="1" maxlength="2" size="1" class="number">
-                                                    <input class="increment" type="button" value="+" >
-                                                </div>
-                                            </div>
-                                            <div class="cart-row">
-                                                <p>Sub Total</p>
-                                                <span>R199.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 offset-md-3">
-                                    <div class="cart-table-sm">
-                                        <div class="content-block">
-                                            <div class="text-center">
-                                                <img src="assets/media/products/cart/c-1.png" alt=""><br>
-                                                <a class="title" href="product-detail.html">Item:<span> Lipstick</span></a><br>
-                                                <h6 class="mesure">SKU: <span>25 819</span></h6>
-                                            </div>
-                                            <div class="cart-row">
-                                                <p>Price</p>
-                                                <span>R318.00</span>
-                                            </div>
-                                            <div class="cart-row">
-                                                <p>Quantity</p>
-                                                <div class="quantity quantity-wrap">
-                                                    <input class="decrement" type="button" value="-" >
-                                                    <input type="text" name="quantity" value="1" maxlength="2" size="1" class="number">
-                                                    <input class="increment" type="button" value="+" >
-                                                </div>
-                                            </div>
-                                            <div class="cart-row">
-                                                <p>Sub Total</p>
-                                                <span>R318.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4">
-                            <div class="cart-detail">
-                                <div class="content-block">
-                                    <h3>Order Detail</h3>
-                                    <div class="detail-row">
-                                        <p>Items Total</p>
-                                        <span>R594.00</span>
-                                    </div>
-                                    <div class="detail-row">
-                                        <p>Shipping Fee</p>
-                                        <span>R05.00</span>
-                                    </div>
-                                    <div class="detail-row">
-                                        <p>Tax</p>
-                                        <span>R02.90</span>
-                                    </div>
-                                    <div class="detail-row">
-                                        <p>Discount</p>
-                                        <span>R20.00</span>
-                                    </div>
-                                </div>
-                                <div class="content-block">
-                                    <div class="payment-method">
-                                        <h6>Payment Method</h6>
-                                        <label for="#cod"><input id="cod" type="radio" name="radio" class="radio" value="1" checked="checked">Cash on Delivery</label>
-                                        <label for="#cp"><input id="cp" type="radio" name="radio" class="radio" value="2">Cheque Payment </label>
-                                        <label for="#bt"><input id="bt" type="radio" name="radio" class="radio" value="3">Bank Transfer </label>
-                                    </div>                                   
-                                </div>
-                                <div class="content-block">
-                                    <div class="total-row">
-                                        <h6>Grand Total</h6>
-                                        <span>R574.90</span>
-                                    </div>
-                                    <a href="checkout.html" class="cus-btn bordered w-100">Confirm Order</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- Cart Area end -->
-
-            <!-- footer Area start -->
-            <footer class="footer bg-white">
-                <div class="container">
-                    <div class="main">
-                        <div class="row">
-                            <div class="col-lg-3 col-md-6 col-sm-9 col-11">
-                                <a class="logo" href="index-2.html"><img alt=""  src="assets/media/logo.png"></a>
-                                <p class="detail">I believe that fashion is not just about clothing, but a form of self-expression. Our curated collection is carefully selected to embody the essence of glamour.</p>
-                            </div>
-                            <div class="col-lg-2 offset-lg-1">
-                                <h5 class="title">Categories</h5>
-                                <ul class="list-unstyled links">
-                                    <li><a href="shop.html">Fashion</a></li>
-                                    <li><a href="shop.html">Clothing</a></li>
-                                    <li><a href="shop.html">Men Jacket</a></li>
-                                    <li><a href="shop.html">Kids Cloth</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-lg-3">
-                                <h5 class="title">Essential Links</h5>
-                                <ul class="list-unstyled links">
-                                    <li><a href="index-2.html">Home</a></li>
-                                    <li><a href="cart.html">Cart</a></li>
-                                    <li><a href="shop.html">Shop</a></li>
-                                    <li><a href="product-detail.html">Product Detail</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-9 col-10">
-                                <h5 class="title">Subscribe to My Newsletter</h5>
-                                <form action="https://uiparadox.co.uk/public/templates/glamour/v2/index.html">
-                                    <div class="input-group mb-16">
-                                        <input type="email" class="form-control" id="mail" name="email" required placeholder="Your Email">
-                                    </div>
-                                    <button type="submit" class="cus-btn dark">Subscribe</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bottom-content">
-                        <h5 class="title">Contact Info</h5>
-                        <div class="contact-row">
-                            <ul class="contact-list list-unstyled">
-                                <li><a href="tel:123456789"><i class="fal fa-phone-alt"></i>+27 833 731 455</a></li>
-                                <li><a href="mailto:info@gmail.com"><i class="fal fa-envelope"></i>info@mdala.com</a></li>
-                                <li><span> <i class="fal fa-map-marker-alt"></i>123 Main Street, Anytown, Berea.</span></li>
-                            </ul>
-                            <ul class="footer-social-icon list-unstyled">
-                                <li><a href="#"><img src="assets/media/icon/icon.png" alt=""></a></li>
-                                <li><a href="#"><img src="assets/media/icon/Vector.png" alt=""></a></li>
-                                <li><a href="#"><img src="assets/media/icon/Vector-1.png" alt=""></a></li>
-                                <li><a href="#"><img src="assets/media/icon/Vector-2.png" alt=""></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <p class="copyright">©2024 All rights are reserved by <a href="" >The Great One</a></p> 
-                    </div>
-                </div>
-            </footer>
-            <!-- footer Area end -->
-
-            <!-- Cart Popup Start -->
-            <aside id="sidebar-cart">
-                <a href="javascript:;" class="close-button close-popup"><span class="close-icon">X</span></a>
-                <div class="mb-32">
-                    <h3 class="h-39 color-dark-2 fw-400 font-sec mb-32">WISHLIST ITEMS <span class="h-27">(2)</span></h3>
-                    <div class="vr-line"></div>
-                </div>
-                <ul class="product-list">
-                    <li class="product-item mb-24">
-                        <a href="javascript:;">
-                            <span class="item-image">
-                                <img src="assets/media/products/cart/c-1.png" alt="Product Photo">
-                            </span>
-                        </a>
-                        <div class="product-text">
-                            <a href="javascript:;">
-                                <h5 class="h-21 font-sec fw-500 color-dark-2 mb-8">Timeless Trellis Lace Dress</h5>
-                            </a>
-                            <h6 class="h-21 font-sec fw-500 color-dark-2 mb-12">1 x $140.99</h6>
-                            <a href="#remove" class="h-16 fw-500 font-sec color-primary">REMOVE</a>
-                        </div>
-                    </li>
-                    <li class="vr-line mb-24"></li>
-                    <li class="product-item">
-                        <a href="javascript:;">
-                            <span class="item-image">
-                                <img src="assets/media/products/cart/c-2.png" alt="Product Photo">
-                            </span>
-                        </a>
-                        <div class="product-text">
-                            <a href="javascript:;">
-                                <h5 class="h-21 font-sec fw-500 color-dark-2 mb-8">Ethereal Elegance Cocktail Dress</h5>
-                            </a>
-                            <h6 class="h-21 font-sec fw-500 color-dark-2 mb-12">1 x $140.99</h6>
-                            <a href="#remove" class="h-16 fw-500 font-sec color-primary">REMOVE</a>
-                        </div>
-                    </li>
-                </ul>
-                <div class="vr-line mb-24"></div>
-                <div class="action-buttons">
-                    <a href="cart.html" class="cus-btn bordered">VIEW CART</a>
-                    <a href="checkout.html" class="cus-btn dark">CHECKOUT</a>
-                </div>
-            </aside>
-            <div id="sidebar-cart-curtain" class="close-popup"></div>
-            <!-- Cart Popup End -->
-
+<section class="section-pad">
+  <div class="container">
+    <div class="checkout-layout">
+      <!-- FORM -->
+      <div class="checkout-form">
+        <h4>Contact Information</h4>
+        <div class="form-grid">
+          <div class="form-group"><label>First Name</label><input type="text" placeholder="Jane" required></div>
+          <div class="form-group"><label>Last Name</label><input type="text" placeholder="Doe" required></div>
         </div>
-            <!-- Jquery Js -->
-            <script src="assets/js/vendor/jquery-3.6.3.min.js"></script>
-            <script src="assets/js/vendor/bootstrap.min.js"></script>
-            <script src="assets/js/vendor/jquery.countdown.min.js"></script>
-            <script src="assets/js/vendor/slick.min.js"></script>
-            <script src="assets/js/vendor/jquery-appear.js"></script>
-            <script src="assets/js/vendor/jquery-validator.js"></script>
-            <!-- Site Scripts -->
-            <script src="assets/js/app.js"></script>
-    </body>
+        <div class="form-grid full">
+          <div class="form-group"><label>Email Address</label><input type="email" placeholder="jane@example.com" required></div>
+          <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+27 71 000 0000"></div>
+        </div>
 
+        <h4>Shipping Address</h4>
+        <div class="form-grid full">
+          <div class="form-group"><label>Address Line 1</label><input type="text" placeholder="123 Main Street" required></div>
+          <div class="form-group"><label>Address Line 2 (optional)</label><input type="text" placeholder="Apt, Suite, etc."></div>
+        </div>
+        <div class="form-grid">
+          <div class="form-group"><label>City</label><input type="text" placeholder="Johannesburg" required></div>
+          <div class="form-group"><label>Province</label>
+            <select>
+              <option>Gauteng</option>
+              <option>Western Cape</option>
+              <option>KwaZulu-Natal</option>
+              <option>Eastern Cape</option>
+              <option>Limpopo</option>
+              <option>Mpumalanga</option>
+              <option>North West</option>
+              <option>Northern Cape</option>
+              <option>Free State</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-grid">
+          <div class="form-group"><label>Postal Code</label><input type="text" placeholder="2000"></div>
+          <div class="form-group"><label>Country</label>
+            <select><option>South Africa</option></select>
+          </div>
+        </div>
 
-<!-- Mirrored from uiparadox.co.uk/public/templates/glamour/v2/checkout.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 28 Jul 2024 01:33:00 GMT -->
+        <h4>Payment Method</h4>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:24px;">
+          <label style="display:flex;align-items:center;gap:12px;padding:16px;border:1px solid var(--border);border-radius:4px;cursor:pointer;">
+            <input type="radio" name="payment" value="card" checked style="accent-color:var(--accent);">
+            <span style="font-size:13px;font-weight:500;">Credit / Debit Card</span>
+            <span style="margin-left:auto;display:flex;gap:6px;">
+              <img src="https://img.shields.io/badge/VISA-1A1F71?style=flat&logo=visa&logoColor=white" alt="Visa" style="height:22px;">
+            </span>
+          </label>
+          <label style="display:flex;align-items:center;gap:12px;padding:16px;border:1px solid var(--border);border-radius:4px;cursor:pointer;">
+            <input type="radio" name="payment" value="eft" style="accent-color:var(--accent);">
+            <span style="font-size:13px;font-weight:500;">EFT / Bank Transfer</span>
+          </label>
+          <label style="display:flex;align-items:center;gap:12px;padding:16px;border:1px solid var(--border);border-radius:4px;cursor:pointer;">
+            <input type="radio" name="payment" value="cod" style="accent-color:var(--accent);">
+            <span style="font-size:13px;font-weight:500;">Cash on Delivery</span>
+          </label>
+        </div>
+
+        <div id="cardFields">
+          <div class="form-grid full">
+            <div class="form-group"><label>Card Number</label><input type="text" placeholder="1234 5678 9012 3456" maxlength="19"></div>
+          </div>
+          <div class="form-grid">
+            <div class="form-group"><label>Expiry Date</label><input type="text" placeholder="MM / YY" maxlength="7"></div>
+            <div class="form-group"><label>CVV</label><input type="text" placeholder="123" maxlength="4"></div>
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px;font-size:12px;color:var(--text-light);">
+          <i class="far fa-shield-check" style="color:var(--accent);"></i>
+          Your payment information is encrypted and secure.
+        </div>
+
+        <button class="btn btn-dark" onclick="placeOrder()" style="width:100%;justify-content:center;font-size:13px;padding:14px;">
+          Place Order
+        </button>
+      </div>
+
+      <!-- ORDER SUMMARY -->
+      <div class="order-summary">
+        <h4>Order Summary</h4>
+        <div id="orderItems"></div>
+        <hr style="border:none;border-top:1px solid var(--border);margin:16px 0;">
+        <div class="summary-row"><span>Subtotal</span><span id="orderSubtotal">R0.00</span></div>
+        <div class="summary-row"><span>Shipping</span><span id="orderShipping">R50.00</span></div>
+        <div class="summary-row total"><span>Total</span><span id="orderTotal">R0.00</span></div>
+        <div style="margin-top:16px;text-align:center;">
+          <a href="cart.html" style="font-size:12px;color:var(--text-light);letter-spacing:1px;text-transform:uppercase;border-bottom:1px solid var(--border);">← Edit Cart</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Dollar<span>.</span></div>
+        <p>A visionary fashion label where every piece is a form of self-expression.</p>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <div class="footer-col"><h6>Shop</h6><ul><li><a href="shop.html">New Arrivals</a></li><li><a href="shop.html">Trending</a></li></ul></div>
+      <div class="footer-col"><h6>Info</h6><ul><li><a href="about.html">About Us</a></li><li><a href="#">Returns</a></li></ul></div>
+      <div class="footer-col"><h6>Contact</h6><ul><li><a href="mailto:hello@dollar.co.za">hello@dollar.co.za</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2025 Dollar Fashion.</span></div>
+  </div>
+</footer>
+
+<a href="#" id="backToTop" class="back-to-top"><i class="far fa-angle-up"></i></a>
+
+<!-- Order Confirmation Modal -->
+<div class="modal-overlay" id="orderModal">
+  <div class="modal" style="text-align:center;padding:40px 24px;">
+    <i class="far fa-check-circle" style="font-size:48px;color:var(--accent);margin-bottom:16px;display:block;"></i>
+    <h3 style="font-family:var(--serif);margin-bottom:8px;">Order Placed!</h3>
+    <p style="color:var(--text-mid);margin-bottom:24px;">Thank you for your purchase. You'll receive a confirmation email shortly.</p>
+    <a href="index.html" class="btn btn-dark">Continue Shopping</a>
+  </div>
+</div>
+
+<script src="assets/js/app.js"></script>
+<script>
+  function renderOrderSummary() {
+    const cart = getCart();
+    const items = document.getElementById('orderItems');
+    if (!cart.length) { items.innerHTML = '<p style="color:var(--text-light);font-size:13px;">No items in cart.</p>'; return; }
+    items.innerHTML = cart.map(item => `
+      <div class="order-item">
+        <img src="${item.image_url}" alt="${item.name}">
+        <div class="order-item-info">
+          <h6>${item.name}</h6>
+          <span>Qty: ${item.qty}</span>
+        </div>
+        <span style="font-size:14px;font-weight:500;white-space:nowrap;">R${(item.price*item.qty).toFixed(2)}</span>
+      </div>`).join('');
+    const total = cart.reduce((s,i) => s + i.price*i.qty, 0);
+    const shipping = total >= 500 ? 0 : 50;
+    document.getElementById('orderSubtotal').textContent = `R${total.toFixed(2)}`;
+    document.getElementById('orderShipping').textContent = shipping === 0 ? 'Free' : `R${shipping.toFixed(2)}`;
+    document.getElementById('orderTotal').textContent = `R${(total+shipping).toFixed(2)}`;
+  }
+
+  document.querySelectorAll('input[name="payment"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+      document.getElementById('cardFields').style.display = radio.value === 'card' ? 'block' : 'none';
+    });
+  });
+
+  function placeOrder() {
+    localStorage.setItem('dollar_cart', JSON.stringify([]));
+    document.getElementById('orderModal').classList.add('open');
+    updateCartCount();
+  }
+
+  renderOrderSummary();
+</script>
+</body>
 </html>
