@@ -1,419 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
-
-    
 <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
-        <meta name="description" content="Glamour HTML5 Template">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop — Dollar Fashion</title>
+  <link rel="shortcut icon" href="assets/media/favicon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
 
-        <title>Dollar - Clothing Store</title>
-
-        <!-- Favicon -->
-        <link rel="shortcut icon" type="image/x-icon" href="assets/media/favicon.png">
-
-        <!-- All CSS files -->
-        <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/vendor/font-awesome.css">
-        <link rel="stylesheet" href="assets/css/vendor/slick.css">
-        <link rel="stylesheet" href="assets/css/vendor/slick-theme.css">
-        <link rel="stylesheet" href="assets/css/app.css">
-
-    </head>
-
-    <body class="no-scroll-y">
-        <!-- Preloader -->
-        <section>
-            <div id="preloader">
-                <div id="ctn-preloader" class="ctn-preloader">
-                    <div class="animation-preloader">
-                        <div class="spinner"></div>
-                        <div class="txt-loading">
-                            <span data-text-preloader="D" class="letters-loading">D</span>
-                            <span data-text-preloader="O" class="letters-loading">O</span>
-                            <span data-text-preloader="L" class="letters-loading">L</span>
-                            <span data-text-preloader="L" class="letters-loading">L</span>
-                            <span data-text-preloader="A" class="letters-loading">A</span>
-                            <span data-text-preloader="R" class="letters-loading">R</span>
-                        </div>
-                    </div>	
-                    <div class="loader-section section-left"></div>
-                    <div class="loader-section section-right"></div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Back To Top Start -->
-        <a href="#main-wrapper" id="backto-top" class="back-to-top">
-            <i class="fas fa-angle-up"></i>
+<div class="announcement-bar">Free shipping on orders over R500 &nbsp;·&nbsp; New collection just dropped</div>
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="logo">Dollar<span>.</span></a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="shop.html" class="active">Shop</a>
+        <a href="about.html">About</a>
+        <a href="cart.html">Cart</a>
+      </nav>
+      <div class="header-actions">
+        <button id="searchToggle"><i class="far fa-search"></i></button>
+        <a href="cart.html" style="position:relative">
+          <i class="far fa-shopping-bag"></i>
+          <span class="cart-count" id="cartCount">0</span>
         </a>
-        <!-- Main Wrapper Start -->
-        <div id="main-wrapper" class="main-wrapper overflow-hidden">
-            <!-- Top Bar Start  -->
-            <div class="top-bar">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-5 col-sm-6">
-                            <div class="social-icons">
-                                <ul class="list-unstyled d-flex">
-                                    <li><a href="#"><img src="assets/media/icon/icon.png" alt=""></a></li>
-                                    <li><a href="#"><img src="assets/media/icon/Vector.png" alt=""></a></li>
-                                    <li><a href="#"><img src="assets/media/icon/Vector-1.png" alt=""></a></li>
-                                    <li><a href="#"><img src="assets/media/icon/Vector-2.png" alt=""></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 d-lg-block d-none">
-                            <a class="navbar-brand " href="index-2.html"><img alt=""  src="assets/media/logo.png"></a>
-                        </div>
-                        <div class="col-lg-5 col-sm-6">
-                            <div class="important-links">
-                                <ul class="list-unstyled d-flex">
-                                    <li><a href="#"><img src="assets/media/icon/user.png" alt=""></a></li>
-                                    <li><a href="#"><img src="assets/media/icon/like.png" alt=""></a></li>
-                                    <li><a  href="javascript:;" class="cart-button"><img src="assets/media/icon/bag.png" alt=""></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Header Area Start -->
-            <header class="header">
-                <div class="container">
-                    <nav class="navbar navbar-expand-lg">
-                        <a class="navbar-brand d-lg-none" href="index-2.html"><img alt=""  src="assets/media/logo.png"></a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar"><i class="fas fa-bars"></i></button>
-                        <div class="collapse navbar-collapse" id="mynavbar">
-                            <ul class="navbar-nav mainmenu m-0">
-                                <li class="menu-item"><a href="index-2.html">Home</a></li>
-                                <li class="menu-item"><a href="shop.html" class="active">Shop</a></li>
-                                <li class="menu-item"><a href="about.html">About</a></li>
-                                <li class="menu-item-has-children">
-                                    <a href="javascript:void(0);">Pages</a>
-                                    <ul class="submenu">
-                                        <li class="menu-item"><a href="product-detail.html">Product Detail</a></li>
-                                        <li class="menu-item"><a href="cart.html">Cart</a></li>
-                                        <li class="menu-item"><a href="checkout.html">Checkout</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <form method="get" action="https://uiparadox.co.uk/public/templates/glamour/v2/shop.html" class="d-lg-block d-none">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search">
-                                <button type="submit" class="input-group-text"><i class="fal fa-search"></i></button>
-                            </div>
-                        </form>
-                    </nav>  
-                </div>
-            </header>
-            <!-- Header Area end -->
+        <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+  <div class="search-bar" id="searchBar">
+    <div class="container">
+      <form action="shop.html" method="get">
+        <input type="text" name="q" placeholder="Search for products…">
+        <button type="submit"><i class="far fa-search"></i></button>
+      </form>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobileNav" style="display:none;padding:16px 24px;border-top:1px solid var(--border);background:var(--white);">
+    <a href="index.html" style="display:block;padding:10px 0;font-size:13px;letter-spacing:1px;text-transform:uppercase;border-bottom:1px solid var(--border);">Home</a>
+    <a href="shop.html" style="display:block;padding:10px 0;font-size:13px;letter-spacing:1px;text-transform:uppercase;border-bottom:1px solid var(--border);">Shop</a>
+    <a href="about.html" style="display:block;padding:10px 0;font-size:13px;letter-spacing:1px;text-transform:uppercase;border-bottom:1px solid var(--border);">About</a>
+    <a href="cart.html" style="display:block;padding:10px 0;font-size:13px;letter-spacing:1px;text-transform:uppercase;">Cart</a>
+  </div>
+</header>
 
-            <!-- Page Title start -->
-            <section class="page-start-banner">
-                <div class="container">
-                    <div class="content">
-                        <h2 class="title">Shop List</h2>
-                    </div>
-                </div>
-            </section>
-            <!-- Page Title End -->
+<!-- PAGE BANNER -->
+<section class="page-banner">
+  <div class="container">
+    <h1>Shop</h1>
+    <nav class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="sep">/</span>
+      <span>Shop</span>
+    </nav>
+  </div>
+</section>
 
-            <!-- Products Area start -->
-            <section class="arrivals pt-100 pb-50">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-3 col-lg-4">
-                            <div class="sidebar">
-                                <div class="content-block">
-                                    <div class="category-filter">
-                                        <h5 class="title">Categories</h5>
-                                        <ul class="">
-                                            <li><a href="shop.html">Fashion</a></li>
-                                            <li><a href="shop.html">Clothing</a></li>
-                                            <li><a href="shop.html">Women Jacket</a></li>
-                                            <li><a href="shop.html">Summer Cloth</a></li>
-                                            <li><a href="shop.html">Lifestyle</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="content-block">
-                                    <div class="popular-products">
-                                        <h5 class="title">Popular Products</h5>
-                                        <a href="product-detail.html" class="product">
-                                            <img src="assets/media/products/ps-1.png" alt="">
-                                            <div class="detail">
-                                                <h6 class="name">Off Shouler Velvet Dress</h6>
-                                                <h6 class="price">R30.00<span class="bar">/</span><span class="old">R70.00</span></h6>
-                                            </div>
-                                        </a>
-                                        <a href="product-detail.html" class="product">
-                                            <img src="assets/media/products/ps-2.png" alt="">
-                                            <div class="detail">
-                                                <h6 class="name">Green Striped Shirt Dress</h6>
-                                                <h6 class="price">R65.00<span class="bar">/</span><span class="old">R81.00</span></h6>
-                                            </div>
-                                        </a>
-                                        <a href="product-detail.html" class="product">
-                                            <img src="assets/media/products/ps-3.png" alt="">
-                                            <div class="detail">
-                                                <h6 class="name">Vichy Cytidine Nightie</h6>
-                                                <h6 class="price">R75.00<span class="bar">/</span><span class="old">R99.00</span></h6>
-                                            </div>
-                                        </a>
-                                        <a href="product-detail.html" class="product">
-                                            <img src="assets/media/products/ps-4.png" alt="">
-                                            <div class="detail">
-                                                <h6 class="name">Green Striped Shirt Dress</h6>
-                                                <h6 class="price">R95.00<span class="bar">/</span><span class="old">R99.00</span></h6>
-                                            </div>
-                                        </a>
-                                        <a href="product-detail.html" class="product">
-                                            <img src="assets/media/products/ps-5.png" alt="">
-                                            <div class="detail">
-                                                <h6 class="name">Red strappy midi dress</h6>
-                                                <h6 class="price">R60.00<span class="bar">/</span><span class="old">R80.00</span></h6>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="text-center">
-                                        <a href="shop.html" class="cus-btn bordered">See More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-9 col-lg-8">
-                            <div class="row">
-                                <div class="col-xl-4 col-lg-6 col-sm-6">
-                                    <div class="product-card">
-                                        <div class="showcase-box">
-                                            <img src="assets/media/products/p-2.png" alt="">
-                                            <div class="btn-links">
-                                                <a href="#"><i class="fal fa-heart"></i></a>
-                                                <a href="cart.html"><i class="fal fa-shopping-bag"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="text-center">
-                                            <a href="product-detail.html" class="title">Green Striped Dress</a>
-                                            <h6 class="price">R72.00<span class="bar">/</span><span class="old">R100.00</span></h6>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-lg-6 col-sm-6">
-                                    <div class="product-card">
-                                        <div class="showcase-box">
-                                            <img src="assets/media/products/p-4.png" alt="">
-                                            <div class="btn-links">
-                                                <a href="#"><i class="fal fa-heart"></i></a>
-                                                <a href="cart.html"><i class="fal fa-shopping-bag"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="text-center">
-                                            <a href="product-detail.html" class="title">Green Maxi Dress</a>
-                                            <h6 class="price">R150.00<span class="bar">/</span><span class="old">R199.00</span></h6>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-lg-6 col-sm-6">
-                                    <div class="product-card ">
-                                        <div class="showcase-box">
-                                            <img src="assets/media/products/p-5.png" alt="">
-                                            <div class="btn-links">
-                                                <a href="#"><i class="fal fa-heart"></i></a>
-                                                <a href="cart.html"><i class="fal fa-shopping-bag"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="text-center">
-                                            <a href="product-detail.html" class="title">Authentic Hoodie - LADIES</a>
-                                            <h6 class="price">R150.00<span class="bar">/</span><span class="old">R199.00</span></h6>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-lg-6 col-sm-6">
-                                    <div class="product-card ">
-                                        <div class="showcase-box">
-                                            <img src="assets/media/products/p-6.png" alt="">
-                                            <div class="btn-links">
-                                                <a href="#"><i class="fal fa-heart"></i></a>
-                                                <a href="cart.html"><i class="fal fa-shopping-bag"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="text-center">
-                                            <a href="product-detail.html" class="title">Cross Back Straps</a>
-                                            <h6 class="price">R50.00<span class="bar">/</span><span class="old">R79.00</span></h6>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-lg-6 col-sm-6">
-                                    <div class="product-card ">
-                                        <div class="showcase-box">
-                                            <img src="assets/media/products/p-7.png" alt="">
-                                            <div class="btn-links">
-                                                <a href="#"><i class="fal fa-heart"></i></a>
-                                                <a href="cart.html"><i class="fal fa-shopping-bag"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="text-center">
-                                            <a href="product-detail.html" class="title">Red strappy midi dress</a>
-                                            <h6 class="price">R55.00<span class="bar">/</span><span class="old">R99.00</span></h6>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-lg-6 col-sm-6">
-                                    <div class="product-card ">
-                                        <div class="showcase-box">
-                                            <img src="assets/media/products/p-8.png" alt="">
-                                            <div class="btn-links">
-                                                <a href="#"><i class="fal fa-heart"></i></a>
-                                                <a href="cart.html"><i class="fal fa-shopping-bag"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="text-center">
-                                            <a href="product-detail.html" class="title">Vichy Cytidine Nightie</a>
-                                            <h6 class="price">R31.00<span class="bar">/</span><span class="old">R52.00</span></h6>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="text-center">
-                                    <div class="pagination-wrape">
-                                        <ul class="pagination">
-                                            <li class="page-item"><a href="#" class="page-link arrow" aria-label="next"><i class="far fa-chevron-left"></i></a></li> 
-                                            <li class="page-item"><a class="page-link current" href="#">1</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                            <li class="page-item"><a href="#" class="page-link arrow" aria-label="next"><i class="far fa-chevron-right"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>             
-            <!-- Products Area end -->
-            <!-- footer Area start -->
-            <footer class="footer bg-white">
-                <div class="container">
-                    <div class="main">
-                        <div class="row">
-                            <div class="col-lg-3 col-md-6 col-sm-9 col-11">
-                                <a class="logo" href="index-2.html"><img alt=""  src="assets/media/logo.png"></a>
-                                <p class="detail">I am a visionary fashion designer who sees fashion as a profound form of self-expression rather than merely clothing.</p>
-                            </div>
-                            <div class="col-lg-2 offset-lg-1">
-                                <h5 class="title">Categories</h5>
-                                <ul class="list-unstyled links">
-                                    <li><a href="shop.html">Fashion</a></li>
-                                    <li><a href="shop.html">Clothing</a></li>
-                                    <li><a href="shop.html">Men Jacket</a></li>
-                                    <li><a href="shop.html">Kids Cloth</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-lg-3">
-                                <h5 class="title">Essential Links</h5>
-                                <ul class="list-unstyled links">
-                                    <li><a href="index-2.html">Home</a></li>
-                                    <li><a href="cart.html">Cart</a></li>
-                                    <li><a href="shop.html">Shop</a></li>
-                                    <li><a href="product-detail.html">Product Detail</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-9 col-10">
-                                <h5 class="title">Subscribe to Our Newsletter</h5>
-                                <form action="https://uiparadox.co.uk/public/templates/glamour/v2/index.html">
-                                    <div class="input-group mb-16">
-                                        <input type="email" class="form-control" id="email" name="email" required placeholder="Your Email">
-                                    </div>
-                                    <button type="submit" class="cus-btn dark">Subscribe</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bottom-content">
-                        <h5 class="title">Contact Info</h5>
-                        <div class="contact-row">
-                            <ul class="contact-list list-unstyled">
-                                <li><a href="tel:123456789"><i class="fal fa-phone-alt"></i>+27 83364 5466</a></li>
-                                <li><a href="mailto:info@gmail.com"><i class="fal fa-envelope"></i>info@mdala.com</a></li>
-                                <li><span> <i class="fal fa-map-marker-alt"></i>123 Main Street, Anytown, Berea.</span></li>
-                            </ul>
-                            <ul class="footer-social-icon list-unstyled">
-                                <li><a href="#"><img src="assets/media/icon/icon.png" alt=""></a></li>
-                                <li><a href="#"><img src="assets/media/icon/Vector.png" alt=""></a></li>
-                                <li><a href="#"><img src="assets/media/icon/Vector-1.png" alt=""></a></li>
-                                <li><a href="#"><img src="assets/media/icon/Vector-2.png" alt=""></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <p class="copyright">©2024 All rights are reserved by<a href="" >The Great One</a> Mdala The G </p> 
-                    </div>
-                </div>
-            </footer>
-            <!-- footer Area end -->
-
-            <!-- Cart Popup Start -->
-            <aside id="sidebar-cart">
-                <a href="javascript:;" class="close-button close-popup"><span class="close-icon">X</span></a>
-                <div class="mb-32">
-                    <h3 class="h-39 color-dark-2 fw-400 font-sec mb-32">WISHLIST ITEMS <span class="h-27">(2)</span></h3>
-                    <div class="vr-line"></div>
-                </div>
-                <ul class="product-list">
-                    <li class="product-item mb-24">
-                        <a href="javascript:;">
-                            <span class="item-image">
-                                <img src="assets/media/products/cart/c-1.png" alt="Product Photo">
-                            </span>
-                        </a>
-                        <div class="product-text">
-                            <a href="javascript:;">
-                                <h5 class="h-21 font-sec fw-500 color-dark-2 mb-8">Timeless Trellis Lace Dress</h5>
-                            </a>
-                            <h6 class="h-21 font-sec fw-500 color-dark-2 mb-12">1 x R140.99</h6>
-                            <a href="#remove" class="h-16 fw-500 font-sec color-primary">REMOVE</a>
-                        </div>
-                    </li>
-                    <li class="vr-line mb-24"></li>
-                    <li class="product-item">
-                        <a href="javascript:;">
-                            <span class="item-image">
-                                <img src="assets/media/products/cart/c-2.png" alt="Product Photo">
-                            </span>
-                        </a>
-                        <div class="product-text">
-                            <a href="javascript:;">
-                                <h5 class="h-21 font-sec fw-500 color-dark-2 mb-8">Ethereal Elegance Cocktail Dress</h5>
-                            </a>
-                            <h6 class="h-21 font-sec fw-500 color-dark-2 mb-12">1 x R140.99</h6>
-                            <a href="#remove" class="h-16 fw-500 font-sec color-primary">REMOVE</a>
-                        </div>
-                    </li>
-                </ul>
-                <div class="vr-line mb-24"></div>
-                <div class="action-buttons">
-                    <a href="cart.html" class="cus-btn bordered">VIEW CART</a>
-                    <a href="checkout.html" class="cus-btn dark">CHECKOUT</a>
-                </div>
-            </aside>
-            <div id="sidebar-cart-curtain" class="close-popup"></div>
-            <!-- Cart Popup End -->
-
+<!-- SHOP -->
+<section class="section-pad">
+  <div class="container">
+    <div class="shop-layout">
+      <!-- SIDEBAR -->
+      <aside class="shop-sidebar">
+        <div class="sidebar-block">
+          <h5>Categories</h5>
+          <ul>
+            <li><a href="shop.html" class="active" data-cat="All">All Products</a></li>
+            <li><a href="#" data-cat="New Arrivals">New Arrivals</a></li>
+            <li><a href="#" data-cat="Trending">Trending</a></li>
+            <li><a href="#" data-cat="Sale">Sale</a></li>
+          </ul>
         </div>
-            <!-- Jquery Js -->
-            <script src="assets/js/vendor/jquery-3.6.3.min.js"></script>
-            <script src="assets/js/vendor/bootstrap.min.js"></script>
-            <script src="assets/js/vendor/jquery.countdown.min.js"></script>
-            <script src="assets/js/vendor/slick.min.js"></script>
-            <script src="assets/js/vendor/jquery-appear.js"></script>
-            <script src="assets/js/vendor/jquery-validator.js"></script>
-            <!-- Site Scripts -->
-            <script src="assets/js/app.js"></script>
-    </body>
+        <div class="sidebar-block">
+          <h5>Price Range</h5>
+          <div style="display:flex;gap:8px;margin-top:8px;">
+            <input type="number" id="priceMin" placeholder="Min" min="0" style="width:80px;border:1px solid var(--border);padding:8px;font-size:12px;border-radius:4px;outline:none;">
+            <input type="number" id="priceMax" placeholder="Max" min="0" style="width:80px;border:1px solid var(--border);padding:8px;font-size:12px;border-radius:4px;outline:none;">
+            <button onclick="filterByPrice()" style="padding:8px 12px;background:var(--text-dark);color:var(--white);border:none;font-size:11px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border-radius:4px;">Go</button>
+          </div>
+        </div>
+        <div class="sidebar-block">
+          <h5>In Stock Only</h5>
+          <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:var(--text-mid);margin-top:8px;">
+            <input type="checkbox" id="inStockOnly" onchange="renderProducts()"> Show in-stock only
+          </label>
+        </div>
+      </aside>
 
+      <!-- PRODUCTS -->
+      <div>
+        <div class="shop-header">
+          <span class="shop-count" id="shopCount">Loading…</span>
+          <div style="display:flex;gap:12px;align-items:center;">
+            <select class="shop-sort" id="shopSort" onchange="renderProducts()">
+              <option value="default">Sort: Default</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="name">Name A–Z</option>
+            </select>
+          </div>
+        </div>
+        <div class="product-grid" id="shopGrid">
+          <div style="grid-column:1/-1;text-align:center;padding:60px 0;color:var(--text-light);">Loading products…</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="container">
+    <h3>Stay in the Loop</h3>
+    <p>Get early access to new drops, exclusive offers and style inspo.</p>
+    <form class="newsletter-form" onsubmit="return handleNewsletter(event)">
+      <input type="email" placeholder="Your email address" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
 
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Dollar<span>.</span></div>
+        <p>A visionary fashion label where every piece is a form of self-expression.</p>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="footer-col"><h6>Shop</h6><ul><li><a href="shop.html">New Arrivals</a></li><li><a href="shop.html">Trending</a></li><li><a href="shop.html?cat=sale">Sale</a></li></ul></div>
+      <div class="footer-col"><h6>Info</h6><ul><li><a href="about.html">About Us</a></li><li><a href="#">Shipping Policy</a></li><li><a href="#">Returns</a></li></ul></div>
+      <div class="footer-col"><h6>Contact</h6><ul><li><a href="mailto:hello@dollar.co.za">hello@dollar.co.za</a></li><li><a href="#">WhatsApp Us</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2025 Dollar Fashion.</span></div>
+  </div>
+</footer>
 
+<a href="#" id="backToTop" class="back-to-top"><i class="far fa-angle-up"></i></a>
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-drawer-header"><h5>Your Cart</h5><button class="close-drawer" id="closeDrawer"><i class="far fa-times"></i></button></div>
+  <div class="cart-drawer-body" id="cartDrawerBody"></div>
+  <div class="cart-drawer-footer">
+    <div class="drawer-total"><span>Total</span><span id="drawerTotal">R0.00</span></div>
+    <a href="checkout.html" class="btn btn-dark">Checkout</a>
+    <a href="cart.html" class="btn btn-outline">View Cart</a>
+  </div>
+</div>
+
+<script src="assets/js/app.js"></script>
+<script>
+  let allProducts = [];
+  let activeCategory = 'All';
+
+  const fallback = [
+    {id:'1',name:'Delilah Halter Maxi',price:80.5,old_price:109,category:'New Arrivals',image_url:'https://raw.githubusercontent.com/the-great-M-D/dollar_store/main/assets/media/products/p-1.png',featured:true,in_stock:true},
+    {id:'2',name:'Green Striped Dress',price:72,old_price:100,category:'New Arrivals',image_url:'https://raw.githubusercontent.com/the-great-M-D/dollar_store/main/assets/media/products/p-2.png',featured:true,in_stock:true},
+    {id:'3',name:'Off Shoulder Dress',price:105,old_price:130,category:'New Arrivals',image_url:'https://raw.githubusercontent.com/the-great-M-D/dollar_store/main/assets/media/products/p-3.png',featured:false,in_stock:true},
+    {id:'4',name:'Green Maxi Dress',price:150,old_price:199,category:'New Arrivals',image_url:'https://raw.githubusercontent.com/the-great-M-D/dollar_store/main/assets/media/products/p-4.png',featured:false,in_stock:true},
+    {id:'5',name:'Authentic Hoodie - Ladies',price:150,old_price:199,category:'Trending',image_url:'https://raw.githubusercontent.com/the-great-M-D/dollar_store/main/assets/media/products/p-5.png',featured:true,in_stock:true},
+    {id:'6',name:'Cross Back Straps',price:50,old_price:79,category:'Trending',image_url:'https://raw.githubusercontent.com/the-great-M-D/dollar_store/main/assets/media/products/p-6.png',featured:false,in_stock:true},
+    {id:'7',name:'Floral Print Blouse',price:65,old_price:85,category:'Trending',image_url:'https://raw.githubusercontent.com/the-great-M-D/dollar_store/main/assets/media/products/p-7.png',featured:false,in_stock:true},
+    {id:'8',name:'Linen Wide Leg Pants',price:95,old_price:125,category:'Sale',image_url:'https://raw.githubusercontent.com/the-great-M-D/dollar_store/main/assets/media/products/p-8.png',featured:true,in_stock:true},
+    {id:'ps1',name:'Off Shoulder Velvet Dress',price:30,old_price:70,category:'Sale',image_url:'https://raw.githubusercontent.com/the-great-M-D/dollar_store/main/assets/media/products/ps-1.png',featured:false,in_stock:true},
+    {id:'ps2',name:'Green Striped Shirt Dress',price:65,old_price:81,category:'Trending',image_url:'https://raw.githubusercontent.com/the-great-M-D/dollar_store/main/assets/media/products/ps-2.png',featured:false,in_stock:true},
+  ];
+
+  // Sidebar category filter
+  document.querySelectorAll('[data-cat]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      activeCategory = link.dataset.cat;
+      document.querySelectorAll('[data-cat]').forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+      renderProducts();
+    });
+  });
+
+  function filterByPrice() {
+    renderProducts();
+  }
+
+  function renderProducts() {
+    const sort = document.getElementById('shopSort').value;
+    const inStockOnly = document.getElementById('inStockOnly').checked;
+    const minPrice = parseFloat(document.getElementById('priceMin').value) || 0;
+    const maxPrice = parseFloat(document.getElementById('priceMax').value) || Infinity;
+
+    let products = [...allProducts];
+    if (activeCategory !== 'All') products = products.filter(p => p.category === activeCategory);
+    if (inStockOnly) products = products.filter(p => p.in_stock);
+    products = products.filter(p => p.price >= minPrice && p.price <= maxPrice);
+
+    if (sort === 'price-asc') products.sort((a,b) => a.price - b.price);
+    else if (sort === 'price-desc') products.sort((a,b) => b.price - a.price);
+    else if (sort === 'name') products.sort((a,b) => a.name.localeCompare(b.name));
+
+    document.getElementById('shopCount').textContent = `${products.length} product${products.length!==1?'s':''}`;
+    document.getElementById('shopGrid').innerHTML = products.length
+      ? products.map(p => productCardHTML(p)).join('')
+      : '<div style="grid-column:1/-1;text-align:center;padding:60px 0;color:var(--text-light);">No products found.</div>';
+  }
+
+  function productCardHTML(p) {
+    const discount = p.old_price ? Math.round((1 - p.price/p.old_price)*100) : null;
+    return `
+      <div class="product-card" onclick="location.href='product-detail.html?id=${p.id||''}'">
+        <div class="product-card-image">
+          <img src="${p.image_url}" alt="${p.name}" loading="lazy">
+          ${discount ? `<span class="product-badge">-${discount}%</span>` : ''}
+          ${p.featured ? `<span class="product-badge new" style="top:12px;left:${discount?'60px':'12px'}">New</span>` : ''}
+          <div class="product-card-actions">
+            <button title="Wishlist" onclick="event.stopPropagation()"><i class="far fa-heart"></i></button>
+            <button title="Add to Cart" onclick="event.stopPropagation(); addToCart(${JSON.stringify(p).replace(/"/g,'&quot;')})"><i class="far fa-shopping-bag"></i></button>
+            <button title="Quick View" onclick="event.stopPropagation()"><i class="far fa-eye"></i></button>
+          </div>
+        </div>
+        <div class="product-card-info">
+          <h5>${p.name}</h5>
+          <p class="product-price">R${p.price.toFixed(2)}${p.old_price ? `<span class="old">R${p.old_price.toFixed(2)}</span>` : ''}</p>
+        </div>
+      </div>`;
+  }
+
+  // Check URL param for category
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('cat') === 'sale') {
+    activeCategory = 'Sale';
+    document.querySelectorAll('[data-cat]').forEach(l => l.classList.remove('active'));
+    document.querySelector('[data-cat="Sale"]').classList.add('active');
+  }
+
+  allProducts = fallback;
+  renderProducts();
+</script>
+</body>
 </html>
