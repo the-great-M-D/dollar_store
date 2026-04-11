@@ -7,157 +7,605 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
-    body { background: var(--off-white); }
+    /* ── Base ── */
+    body { background: var(--off-white); margin: 0; }
+
+    /* ── LOGIN SCREEN ── */
+    .login-screen {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--cream);
+    }
+    .login-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 40px;
+      width: 100%;
+      max-width: 380px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.07);
+    }
+    .login-box .logo {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      letter-spacing: 2px;
+      text-align: center;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .login-box .logo span { color: var(--accent); }
+    .login-subtitle {
+      text-align: center;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 32px;
+    }
+    .login-box .form-group { margin-bottom: 16px; }
+    .login-box .form-group label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--text-mid);
+      margin-bottom: 6px;
+    }
+    .login-box .form-group input {
+      width: 100%;
+      border: 1px solid var(--border);
+      padding: 11px 14px;
+      font-size: 13px;
+      border-radius: var(--radius);
+      outline: none;
+      font-family: var(--sans);
+      color: var(--text-dark);
+      background: var(--off-white);
+      transition: border-color var(--transition);
+      box-sizing: border-box;
+    }
+    .login-box .form-group input:focus { border-color: var(--accent); background: var(--white); }
+    .login-box .btn-login {
+      width: 100%;
+      padding: 13px;
+      background: var(--text-dark);
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius);
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: background var(--transition);
+      font-family: var(--sans);
+    }
+    .login-box .btn-login:hover { background: var(--accent); }
+    .login-error {
+      background: #fdecea;
+      color: #c62828;
+      font-size: 12px;
+      padding: 10px 14px;
+      border-radius: var(--radius);
+      margin-bottom: 16px;
+      display: none;
+    }
+    .login-error.show { display: block; }
+    .password-wrap { position: relative; }
+    .password-wrap input { padding-right: 40px; }
+    .toggle-pw {
+      position: absolute;
+      right: 12px; top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-light);
+      font-size: 14px;
+    }
+
+    /* ── CMS LAYOUT ── */
+    .cms-app { display: none; }
+    .cms-app.visible { display: block; }
+
+    .cms-wrap {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      min-height: 100vh;
+    }
+
+    /* ── SIDEBAR ── */
+    .cms-sidebar {
+      background: var(--text-dark);
+      position: fixed;
+      top: 0; left: 0;
+      height: 100vh;
+      width: 220px;
+      overflow-y: auto;
+      z-index: 150;
+      transition: transform 0.3s ease;
+    }
+    .cms-sidebar-logo {
+      padding: 22px 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      color: var(--white);
+      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .cms-sidebar-logo span { color: var(--accent); }
+    .sidebar-close {
+      display: none;
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.5);
+      font-size: 18px;
+      cursor: pointer;
+    }
+    .cms-nav { padding: 12px 0; }
+    .cms-nav a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 20px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      transition: all var(--transition);
+      border-left: 3px solid transparent;
+      text-decoration: none;
+    }
+    .cms-nav a:hover, .cms-nav a.active {
+      color: var(--white);
+      background: rgba(255,255,255,0.05);
+      border-left-color: var(--accent);
+    }
+    .cms-nav a i { font-size: 15px; width: 18px; }
+    .cms-nav .nav-label {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+      padding: 16px 20px 6px;
+      font-weight: 600;
+    }
+
+    /* ── MAIN ── */
+    .cms-main {
+      margin-left: 220px;
+      min-height: 100vh;
+      background: var(--off-white);
+    }
+    .cms-topbar {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 0 28px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .topbar-left { display: flex; align-items: center; gap: 14px; }
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      color: var(--text-dark);
+      padding: 4px;
+    }
+    .cms-topbar h4 { font-family: var(--serif); font-size: 1.1rem; margin: 0; }
+    .topbar-right { display: flex; align-items: center; gap: 12px; }
+    .topbar-avatar {
+      width: 34px; height: 34px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: white;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      position: relative;
+    }
+    .topbar-user { font-size: 12px; color: var(--text-light); }
+    .logout-btn {
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      background: none;
+      border: 1px solid var(--border);
+      padding: 6px 12px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      font-family: var(--sans);
+      transition: all var(--transition);
+    }
+    .logout-btn:hover { border-color: #e74c3c; color: #e74c3c; }
+
+    .cms-content { padding: 28px; }
+
+    /* ── TABS ── */
     .tab-content { display: none; }
     .tab-content.active { display: block; }
-    .form-group input, .form-group select, .form-group textarea { width: 100%; }
-    .img-preview { width: 80px; height: 100px; object-fit: cover; border-radius: 4px; background: var(--cream); margin-top: 6px; }
+
+    /* ── STATS ── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .stat-card {
+      background: var(--white);
+      padding: 20px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+    .stat-card .stat-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); margin-bottom: 8px; }
+    .stat-card .stat-value { font-family: var(--serif); font-size: 2rem; color: var(--text-dark); }
+    .stat-card .stat-sub { font-size: 12px; color: var(--accent); margin-top: 4px; }
+
+    /* ── CMS CARD ── */
+    .cms-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin-bottom: 24px; }
+    .cms-card-header {
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .cms-card-header h5 { font-family: var(--serif); font-size: 1rem; margin: 0; }
+
+    /* ── TABLE ── */
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .cms-table { width: 100%; border-collapse: collapse; min-width: 600px; }
+    .cms-table th {
+      font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--text-light); font-weight: 600;
+      padding: 11px 16px; text-align: left;
+      background: var(--off-white);
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    .cms-table td {
+      padding: 13px 16px;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text-dark);
+      vertical-align: middle;
+    }
+    .cms-table tr:last-child td { border-bottom: none; }
+    .cms-table tr:hover td { background: var(--off-white); }
+    .cms-product-img { width: 44px; height: 56px; object-fit: cover; border-radius: 3px; background: var(--cream); display: block; }
+
+    /* ── BADGES ── */
+    .badge { display: inline-block; padding: 3px 9px; border-radius: 20px; font-size: 10px; font-weight: 600; letter-spacing: 0.5px; white-space: nowrap; }
+    .badge-green { background: #e8f5e9; color: #2e7d32; }
+    .badge-orange { background: #fff3e0; color: #e65100; }
+    .badge-blue { background: #e3f2fd; color: #1565c0; }
+    .badge-gray { background: #f5f5f5; color: #757575; }
+
+    /* ── ACTION BTNS ── */
+    .action-btns { display: flex; gap: 6px; }
+    .action-btn {
+      width: 30px; height: 30px;
+      border: 1px solid var(--border);
+      background: var(--white);
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 13px;
+      color: var(--text-mid);
+      display: flex; align-items: center; justify-content: center;
+      transition: all var(--transition);
+    }
+    .action-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .action-btn.danger:hover { border-color: #e74c3c; color: #e74c3c; }
+
+    /* ── FORM ── */
+    .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-grid-2 .full { grid-column: 1 / -1; }
+    .form-group { display: flex; flex-direction: column; gap: 5px; }
+    .form-group label { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; font-weight: 500; color: var(--text-mid); }
+    .form-group input, .form-group select, .form-group textarea {
+      border: 1px solid var(--border);
+      padding: 10px 13px;
+      font-size: 13px;
+      border-radius: var(--radius);
+      outline: none;
+      font-family: var(--sans);
+      color: var(--text-dark);
+      background: var(--white);
+      transition: border-color var(--transition);
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--accent); }
+    .img-preview { width: 72px; height: 90px; object-fit: cover; border-radius: 4px; background: var(--cream); margin-top: 6px; display: none; }
+
+    /* ── TOGGLE ── */
     .toggle-switch { position: relative; display: inline-block; width: 40px; height: 22px; }
     .toggle-switch input { opacity: 0; width: 0; height: 0; }
     .toggle-slider { position: absolute; cursor: pointer; inset: 0; background: #ccc; border-radius: 22px; transition: .3s; }
     .toggle-slider:before { content: ""; position: absolute; height: 16px; width: 16px; left: 3px; bottom: 3px; background: white; border-radius: 50%; transition: .3s; }
     .toggle-switch input:checked + .toggle-slider { background: var(--accent); }
     .toggle-switch input:checked + .toggle-slider:before { transform: translateX(18px); }
+
+    /* ── MODAL ── */
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 300; display: none; align-items: center; justify-content: center; padding: 16px; }
+    .modal-overlay.open { display: flex; }
+    .modal { background: var(--white); border-radius: var(--radius); width: 100%; max-width: 520px; max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
+    .modal-header { padding: 18px 22px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+    .modal-header h5 { font-family: var(--serif); margin: 0; }
+    .modal-body { padding: 22px; }
+    .modal-footer { padding: 14px 22px; border-top: 1px solid var(--border); display: flex; justify-content: flex-end; gap: 10px; }
+    .close-drawer { background: none; border: none; cursor: pointer; font-size: 18px; color: var(--text-mid); }
+
+    /* ── SIDEBAR OVERLAY (mobile) ── */
+    .sidebar-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 140;
+    }
+    .sidebar-overlay.open { display: block; }
+
+    /* ── HERO FORM ── */
+    .hero-form { padding: 22px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .cms-wrap { grid-template-columns: 1fr; }
+      .cms-sidebar { transform: translateX(-100%); }
+      .cms-sidebar.open { transform: translateX(0); }
+      .sidebar-close { display: block; }
+      .cms-main { margin-left: 0; }
+      .menu-toggle { display: block; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .topbar-user { display: none; }
+    }
+    @media (max-width: 600px) {
+      .cms-content { padding: 16px; }
+      .stats-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .stat-card { padding: 14px; }
+      .stat-card .stat-value { font-size: 1.6rem; }
+      .form-grid-2 { grid-template-columns: 1fr; }
+      .form-grid-2 .full { grid-column: 1; }
+      .cms-topbar { padding: 0 16px; }
+      .cms-card-header { padding: 12px 16px; }
+      .logout-btn span { display: none; }
+    }
+    @media (max-width: 420px) {
+      .stats-grid { grid-template-columns: 1fr; }
+      .login-box { padding: 28px 20px; }
+    }
   </style>
 </head>
 <body>
 
-<div class="cms-wrap">
-  <!-- SIDEBAR -->
-  <nav class="cms-sidebar">
-    <div class="cms-sidebar-logo">Dollar<span>.</span> CMS</div>
-    <div class="cms-nav">
-      <a href="#" class="active" data-tab="dashboard"><i class="far fa-chart-bar"></i> Dashboard</a>
-      <a href="#" data-tab="products"><i class="far fa-tag"></i> Products</a>
-      <a href="#" data-tab="hero"><i class="far fa-image"></i> Hero Banner</a>
-      <a href="#" data-tab="settings"><i class="far fa-cog"></i> Settings</a>
-      <hr style="border:none;border-top:1px solid rgba(255,255,255,0.08);margin:12px 0;">
-      <a href="index.html" target="_blank"><i class="far fa-external-link"></i> View Site</a>
-    </div>
-  </nav>
+<!-- ══════════════════════════
+     LOGIN SCREEN
+══════════════════════════ -->
+<div class="login-screen" id="loginScreen">
+  <div class="login-box">
+    <span class="logo">Dollar<span>.</span></span>
+    <p class="login-subtitle">Admin Panel</p>
 
-  <!-- MAIN -->
-  <div class="cms-main">
-    <div class="cms-topbar">
-      <h4 id="pageTitle">Dashboard</h4>
-      <div style="display:flex;align-items:center;gap:12px;">
-        <span style="font-size:12px;color:var(--text-light);">Welcome back, Admin</span>
-        <div style="width:34px;height:34px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:13px;font-weight:600;">A</div>
-      </div>
+    <div class="login-error" id="loginError">
+      <i class="far fa-exclamation-circle"></i> Incorrect username or password.
     </div>
 
-    <div class="cms-content">
-
-      <!-- DASHBOARD TAB -->
-      <div class="tab-content active" id="tab-dashboard">
-        <div class="stats-grid">
-          <div class="stat-card">
-            <div class="stat-label">Total Products</div>
-            <div class="stat-value" id="statProducts">—</div>
-            <div class="stat-sub">In database</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-label">In Stock</div>
-            <div class="stat-value" id="statInStock">—</div>
-            <div class="stat-sub">Available</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-label">Featured</div>
-            <div class="stat-value" id="statFeatured">—</div>
-            <div class="stat-sub">Highlighted</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-label">Categories</div>
-            <div class="stat-value">4</div>
-            <div class="stat-sub">Active</div>
-          </div>
-        </div>
-
-        <div class="cms-card">
-          <div class="cms-card-header">
-            <h5>Recent Products</h5>
-            <button class="btn btn-dark" style="padding:8px 16px;font-size:11px;" onclick="showTab('products')">Manage Products</button>
-          </div>
-          <table class="cms-table" id="dashRecentTable">
-            <thead><tr><th></th><th>Name</th><th>Price</th><th>Category</th><th>Status</th></tr></thead>
-            <tbody id="dashRecentBody"><tr><td colspan="5" style="text-align:center;padding:24px;color:var(--text-light);">Loading…</td></tr></tbody>
-          </table>
+    <form onsubmit="attemptLogin(event)">
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" id="loginUser" placeholder="admin" autocomplete="username" required>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <div class="password-wrap">
+          <input type="password" id="loginPass" placeholder="••••••••" autocomplete="current-password" required>
+          <button type="button" class="toggle-pw" id="togglePw" onclick="togglePwVisibility()">
+            <i class="far fa-eye" id="pwIcon"></i>
+          </button>
         </div>
       </div>
+      <button type="submit" class="btn-login">Sign In</button>
+    </form>
 
-      <!-- PRODUCTS TAB -->
-      <div class="tab-content" id="tab-products">
-        <div class="cms-card">
-          <div class="cms-card-header">
-            <h5>All Products</h5>
-            <button class="btn btn-dark" style="padding:8px 16px;font-size:11px;" onclick="openProductModal()">
-              <i class="far fa-plus"></i> Add Product
-            </button>
-          </div>
-          <table class="cms-table" id="productsTable">
-            <thead>
-              <tr>
-                <th>Image</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Was</th>
-                <th>Category</th>
-                <th>Stock</th>
-                <th>Featured</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody id="productsBody"><tr><td colspan="8" style="text-align:center;padding:24px;color:var(--text-light);">Loading products…</td></tr></tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- HERO TAB -->
-      <div class="tab-content" id="tab-hero">
-        <div class="cms-card">
-          <div class="cms-card-header">
-            <h5>Hero Banner</h5>
-            <button class="btn btn-accent" style="padding:8px 16px;font-size:11px;" onclick="saveHero()">
-              <i class="far fa-save"></i> Save Changes
-            </button>
-          </div>
-          <div style="padding:24px;">
-            <div class="form-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-              <div class="form-group"><label>Heading</label><input type="text" id="heroHeading" placeholder="Discover Your Signature Look"></div>
-              <div class="form-group"><label>Subheading</label><input type="text" id="heroSub" placeholder="Effortless pieces curated…"></div>
-              <div class="form-group"><label>CTA Button Text</label><input type="text" id="heroCta" placeholder="Shop Now"></div>
-              <div class="form-group"><label>CTA Link</label><input type="text" id="heroLink" placeholder="shop.html"></div>
-              <div class="form-group" style="grid-column:1/-1;"><label>Banner Image URL</label><input type="text" id="heroImage" placeholder="https://…">
-                <img id="heroPreview" class="img-preview" src="" alt="" style="display:none;margin-top:8px;">
-              </div>
-            </div>
-            <div id="heroSaveMsg" style="display:none;margin-top:12px;padding:10px 16px;background:#e8f5e9;border-radius:4px;font-size:13px;color:#2e7d32;">✓ Hero content saved successfully!</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- SETTINGS TAB -->
-      <div class="tab-content" id="tab-settings">
-        <div class="cms-card">
-          <div class="cms-card-header"><h5>Store Settings</h5></div>
-          <div style="padding:24px;">
-            <div class="form-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-              <div class="form-group"><label>Store Name</label><input type="text" value="Dollar Fashion"></div>
-              <div class="form-group"><label>Email</label><input type="email" value="hello@dollar.co.za"></div>
-              <div class="form-group"><label>Phone</label><input type="tel" placeholder="+27 10 000 0000"></div>
-              <div class="form-group"><label>Free Shipping Threshold (R)</label><input type="number" value="500"></div>
-              <div class="form-group" style="grid-column:1/-1;"><label>Announcement Bar Text</label><input type="text" value="Free shipping on orders over R500 · New collection just dropped"></div>
-            </div>
-            <button class="btn btn-dark" style="margin-top:16px;" onclick="alert('Settings saved!')">Save Settings</button>
-          </div>
-        </div>
-      </div>
-
-    </div>
+    <p style="text-align:center;font-size:11px;color:var(--text-light);margin-top:20px;">
+      Default: admin / dollar2025
+    </p>
   </div>
 </div>
 
-<!-- PRODUCT MODAL -->
+<!-- ══════════════════════════
+     CMS APP
+══════════════════════════ -->
+<div class="cms-app" id="cmsApp">
+
+  <!-- Sidebar overlay (mobile) -->
+  <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+
+  <div class="cms-wrap">
+    <!-- SIDEBAR -->
+    <nav class="cms-sidebar" id="cmsSidebar">
+      <div class="cms-sidebar-logo">
+        Dollar<span>.</span> CMS
+        <button class="sidebar-close" onclick="closeSidebar()"><i class="far fa-times"></i></button>
+      </div>
+      <div class="cms-nav">
+        <div class="nav-label">Main</div>
+        <a href="#" class="active" data-tab="dashboard"><i class="far fa-chart-bar"></i> Dashboard</a>
+        <a href="#" data-tab="products"><i class="far fa-tag"></i> Products</a>
+        <a href="#" data-tab="hero"><i class="far fa-image"></i> Hero Banner</a>
+        <div class="nav-label">Config</div>
+        <a href="#" data-tab="settings"><i class="far fa-cog"></i> Settings</a>
+        <hr style="border:none;border-top:1px solid rgba(255,255,255,0.08);margin:10px 0;">
+        <a href="index.html" target="_blank"><i class="far fa-external-link-alt"></i> View Site</a>
+      </div>
+    </nav>
+
+    <!-- MAIN -->
+    <div class="cms-main">
+      <div class="cms-topbar">
+        <div class="topbar-left">
+          <button class="menu-toggle" onclick="openSidebar()"><i class="far fa-bars"></i></button>
+          <h4 id="pageTitle">Dashboard</h4>
+        </div>
+        <div class="topbar-right">
+          <span class="topbar-user" id="topbarUser">admin</span>
+          <button class="logout-btn" onclick="logout()">
+            <i class="far fa-sign-out-alt"></i> <span>Sign Out</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="cms-content">
+
+        <!-- DASHBOARD -->
+        <div class="tab-content active" id="tab-dashboard">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-label">Total Products</div>
+              <div class="stat-value" id="statProducts">—</div>
+              <div class="stat-sub">In catalogue</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">In Stock</div>
+              <div class="stat-value" id="statInStock">—</div>
+              <div class="stat-sub">Available now</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Featured</div>
+              <div class="stat-value" id="statFeatured">—</div>
+              <div class="stat-sub">Highlighted</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Categories</div>
+              <div class="stat-value">4</div>
+              <div class="stat-sub">Active</div>
+            </div>
+          </div>
+
+          <div class="cms-card">
+            <div class="cms-card-header">
+              <h5>Recent Products</h5>
+              <button class="btn btn-dark" style="padding:8px 14px;font-size:11px;" onclick="showTab('products')">
+                <i class="far fa-arrow-right"></i> Manage
+              </button>
+            </div>
+            <div class="table-wrap">
+              <table class="cms-table">
+                <thead><tr><th></th><th>Name</th><th>Price</th><th>Category</th><th>Status</th></tr></thead>
+                <tbody id="dashRecentBody"><tr><td colspan="5" style="text-align:center;padding:24px;color:var(--text-light);">Loading…</td></tr></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- PRODUCTS -->
+        <div class="tab-content" id="tab-products">
+          <div class="cms-card">
+            <div class="cms-card-header">
+              <h5>All Products</h5>
+              <button class="btn btn-dark" style="padding:8px 14px;font-size:11px;" onclick="openProductModal()">
+                <i class="far fa-plus"></i> Add Product
+              </button>
+            </div>
+            <div class="table-wrap">
+              <table class="cms-table">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Was</th>
+                    <th>Category</th>
+                    <th>Stock</th>
+                    <th>Featured</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="productsBody">
+                  <tr><td colspan="8" style="text-align:center;padding:24px;color:var(--text-light);">Loading…</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- HERO BANNER -->
+        <div class="tab-content" id="tab-hero">
+          <div class="cms-card">
+            <div class="cms-card-header">
+              <h5>Hero Banner</h5>
+              <button class="btn btn-accent" style="padding:8px 14px;font-size:11px;background:var(--accent);color:white;border:none;border-radius:4px;cursor:pointer;" onclick="saveHero()">
+                <i class="far fa-save"></i> Save
+              </button>
+            </div>
+            <div class="hero-form">
+              <div class="form-grid-2">
+                <div class="form-group"><label>Heading</label><input type="text" id="heroHeading" placeholder="Discover Your Signature Look"></div>
+                <div class="form-group"><label>Subheading</label><input type="text" id="heroSub" placeholder="Effortless pieces curated…"></div>
+                <div class="form-group"><label>CTA Button Text</label><input type="text" id="heroCta" placeholder="Shop Now"></div>
+                <div class="form-group"><label>CTA Link</label><input type="text" id="heroLink" placeholder="shop.html"></div>
+                <div class="form-group full">
+                  <label>Banner Image URL</label>
+                  <input type="url" id="heroImage" placeholder="https://…" oninput="previewHeroImg()">
+                  <img id="heroPreview" class="img-preview" style="width:120px;height:160px;" src="" alt="">
+                </div>
+              </div>
+              <div id="heroSaveMsg" style="display:none;margin-top:14px;padding:10px 16px;background:#e8f5e9;border-radius:4px;font-size:13px;color:#2e7d32;">
+                <i class="far fa-check-circle"></i> Hero content saved!
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SETTINGS -->
+        <div class="tab-content" id="tab-settings">
+          <div class="cms-card">
+            <div class="cms-card-header">
+              <h5>Store Settings</h5>
+            </div>
+            <div style="padding:22px;">
+              <div class="form-grid-2">
+                <div class="form-group"><label>Store Name</label><input type="text" value="Dollar Fashion"></div>
+                <div class="form-group"><label>Email</label><input type="email" value="hello@dollar.co.za"></div>
+                <div class="form-group"><label>Phone</label><input type="tel" placeholder="+27 10 000 0000"></div>
+                <div class="form-group"><label>Free Shipping Threshold (R)</label><input type="number" value="500"></div>
+                <div class="form-group full"><label>Announcement Bar Text</label><input type="text" value="Free shipping on orders over R500 · New collection just dropped"></div>
+              </div>
+              <hr style="border:none;border-top:1px solid var(--border);margin:20px 0;">
+              <h5 style="font-family:var(--serif);margin-bottom:16px;">Change Password</h5>
+              <div class="form-grid-2">
+                <div class="form-group"><label>New Username</label><input type="text" id="newUser" placeholder="admin"></div>
+                <div class="form-group"><label>New Password</label><input type="password" id="newPass" placeholder="••••••••"></div>
+              </div>
+              <button class="btn btn-dark" style="margin-top:16px;" onclick="saveSettings()">Save Settings</button>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /cms-content -->
+    </div><!-- /cms-main -->
+  </div><!-- /cms-wrap -->
+</div><!-- /cms-app -->
+
+<!-- ══ PRODUCT MODAL ══ -->
 <div class="modal-overlay" id="productModal">
   <div class="modal">
     <div class="modal-header">
@@ -166,11 +614,12 @@
     </div>
     <div class="modal-body">
       <input type="hidden" id="editProductId">
-      <div class="form-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
-        <div class="form-group" style="grid-column:1/-1;"><label>Product Name</label><input type="text" id="pName" placeholder="e.g. Silk Midi Dress"></div>
-        <div class="form-group"><label>Price (R)</label><input type="number" id="pPrice" placeholder="0.00" step="0.01"></div>
-        <div class="form-group"><label>Old Price (R)</label><input type="number" id="pOldPrice" placeholder="0.00" step="0.01"></div>
-        <div class="form-group"><label>Category</label>
+      <div class="form-grid-2">
+        <div class="form-group full"><label>Product Name</label><input type="text" id="pName" placeholder="e.g. Silk Midi Dress"></div>
+        <div class="form-group"><label>Price (R)</label><input type="number" id="pPrice" placeholder="0.00" step="0.01" min="0"></div>
+        <div class="form-group"><label>Old Price (R)</label><input type="number" id="pOldPrice" placeholder="0.00" step="0.01" min="0"></div>
+        <div class="form-group">
+          <label>Category</label>
           <select id="pCategory">
             <option>New Arrivals</option>
             <option>Trending</option>
@@ -179,10 +628,15 @@
           </select>
         </div>
         <div class="form-group"><label>SKU</label><input type="text" id="pSku" placeholder="e.g. SMD-001"></div>
-        <div class="form-group" style="grid-column:1/-1;"><label>Image URL</label><input type="url" id="pImage" placeholder="https://…" oninput="previewImg()">
-          <img id="pImgPreview" class="img-preview" src="" alt="" style="display:none;">
+        <div class="form-group full">
+          <label>Image URL</label>
+          <input type="url" id="pImage" placeholder="https://…" oninput="previewImg()">
+          <img id="pImgPreview" class="img-preview" src="" alt="">
         </div>
-        <div class="form-group" style="grid-column:1/-1;"><label>Description</label><textarea id="pDesc" rows="3" placeholder="Describe the product…" style="width:100%;border:1px solid var(--border);padding:10px 14px;font-size:13px;border-radius:4px;outline:none;resize:vertical;"></textarea></div>
+        <div class="form-group full">
+          <label>Description</label>
+          <textarea id="pDesc" rows="3" placeholder="Describe the product…" style="resize:vertical;"></textarea>
+        </div>
         <div class="form-group">
           <label>In Stock</label>
           <label class="toggle-switch" style="margin-top:8px;"><input type="checkbox" id="pStock" checked><span class="toggle-slider"></span></label>
@@ -200,11 +654,16 @@
   </div>
 </div>
 
-<!-- DELETE CONFIRM MODAL -->
+<!-- ══ DELETE MODAL ══ -->
 <div class="modal-overlay" id="deleteModal">
-  <div class="modal" style="width:360px;">
-    <div class="modal-header"><h5>Delete Product</h5><button class="close-drawer" onclick="closeDeleteModal()"><i class="far fa-times"></i></button></div>
-    <div class="modal-body"><p style="color:var(--text-mid);">Are you sure you want to delete <strong id="deleteProductName"></strong>? This cannot be undone.</p></div>
+  <div class="modal" style="max-width:360px;">
+    <div class="modal-header">
+      <h5>Delete Product</h5>
+      <button class="close-drawer" onclick="closeDeleteModal()"><i class="far fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <p style="color:var(--text-mid);">Are you sure you want to delete <strong id="deleteProductName"></strong>? This cannot be undone.</p>
+    </div>
     <div class="modal-footer">
       <button class="btn btn-outline" onclick="closeDeleteModal()">Cancel</button>
       <button class="btn btn-dark" style="background:#e74c3c;" onclick="confirmDelete()">Delete</button>
@@ -213,177 +672,303 @@
 </div>
 
 <script>
-  // ── Tab navigation ──
-  document.querySelectorAll('.cms-nav a[data-tab]').forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      showTab(link.dataset.tab);
-    });
-  });
-  function showTab(tab) {
-    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.cms-nav a').forEach(l => l.classList.remove('active'));
-    document.getElementById('tab-' + tab).classList.add('active');
-    document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
-    const titles = { dashboard:'Dashboard', products:'Products', hero:'Hero Banner', settings:'Settings' };
-    document.getElementById('pageTitle').textContent = titles[tab] || tab;
+/* ════════════════════════
+   AUTH
+════════════════════════ */
+const DEFAULT_USER = 'admin';
+const DEFAULT_PASS = 'dollar2025';
+const SESSION_KEY  = 'dollar_cms_auth';
+
+function getCredentials() {
+  const stored = localStorage.getItem('dollar_cms_credentials');
+  if (stored) return JSON.parse(stored);
+  return { user: DEFAULT_USER, pass: DEFAULT_PASS };
+}
+
+function checkSession() {
+  const session = sessionStorage.getItem(SESSION_KEY);
+  if (session) {
+    const data = JSON.parse(session);
+    document.getElementById('loginScreen').style.display = 'none';
+    document.getElementById('cmsApp').classList.add('visible');
+    document.getElementById('topbarUser').textContent = data.user;
+    renderDashboard();
+    renderProducts();
+    return true;
   }
+  return false;
+}
 
-  // ── API helper ──
-  const API = 'https://app.base44.com/api/apps/69da301c0c01442135f5e85e/entities/Product';
+function attemptLogin(e) {
+  e.preventDefault();
+  const user = document.getElementById('loginUser').value.trim();
+  const pass = document.getElementById('loginPass').value;
+  const creds = getCredentials();
+  const error = document.getElementById('loginError');
 
-  async function fetchProducts() {
-    try {
-      const res = await fetch(API, { headers: { 'Accept': 'application/json' } });
-      if (!res.ok) throw new Error('API error');
-      const data = await res.json();
-      return data.items || data;
-    } catch(e) {
-      return LOCAL_PRODUCTS;
-    }
+  if (user === creds.user && pass === creds.pass) {
+    sessionStorage.setItem(SESSION_KEY, JSON.stringify({ user }));
+    error.classList.remove('show');
+    document.getElementById('loginScreen').style.display = 'none';
+    document.getElementById('cmsApp').classList.add('visible');
+    document.getElementById('topbarUser').textContent = user;
+    renderDashboard();
+    renderProducts();
+  } else {
+    error.classList.add('show');
+    document.getElementById('loginPass').value = '';
+    document.getElementById('loginPass').focus();
   }
+}
 
-  // Local fallback
-  const LOCAL_PRODUCTS = [
-    {id:'1',name:'Delilah Halter Maxi',price:80.5,old_price:109,category:'New Arrivals',image_url:'https://raw.githubusercontent.com/the-great-M-D/dollar_store/main/assets/media/products/p-1.png',sku:'DLH-001',in_stock:true,featured:true,description:'Elegant halter maxi dress.'},
-    {id:'2',name:'Green Striped Dress',price:72,old_price:100,category:'New Arrivals',image_url:'https://raw.githubusercontent.com/the-great-M-D/dollar_store/main/assets/media/products/p-2.png',sku:'GSD-002',in_stock:true,featured:true,description:'Fresh green striped dress.'},
-    {id:'3',name:'Off Shoulder Dress',price:105,old_price:130,category:'New Arrivals',image_url:'https://raw.githubusercontent.com/the-great-M-D/dollar_store/main/assets/media/products/p-3.png',sku:'OSD-003',in_stock:true,featured:false,description:'Classic off-shoulder silhouette.'},
-    {id:'4',name:'Green Maxi Dress',price:150,old_price:199,category:'New Arrivals',image_url:'https://raw.githubusercontent.com/the-great-M-D/dollar_store/main/assets/media/products/p-4.png',sku:'GMD-004',in_stock:true,featured:false,description:'Floor-length green maxi.'},
-    {id:'5',name:'Authentic Hoodie - Ladies',price:150,old_price:199,category:'Trending',image_url:'https://raw.githubusercontent.com/the-great-M-D/dollar_store/main/assets/media/products/p-5.png',sku:'AHL-005',in_stock:true,featured:true,description:'Cozy ladies hoodie.'},
-    {id:'6',name:'Cross Back Straps',price:50,old_price:79,category:'Trending',image_url:'https://raw.githubusercontent.com/the-great-M-D/dollar_store/main/assets/media/products/p-6.png',sku:'CBS-006',in_stock:true,featured:false,description:'Minimalist cross-back top.'},
-    {id:'7',name:'Floral Print Blouse',price:65,old_price:85,category:'Trending',image_url:'https://raw.githubusercontent.com/the-great-M-D/dollar_store/main/assets/media/products/p-7.png',sku:'FPB-007',in_stock:true,featured:false,description:'Light floral blouse.'},
-    {id:'8',name:'Linen Wide Leg Pants',price:95,old_price:125,category:'Sale',image_url:'https://raw.githubusercontent.com/the-great-M-D/dollar_store/main/assets/media/products/p-8.png',sku:'LWP-008',in_stock:true,featured:true,description:'Relaxed linen trousers.'},
-  ];
-  let products = [...LOCAL_PRODUCTS];
-  let deleteTarget = null;
+function logout() {
+  if (!confirm('Sign out of the admin panel?')) return;
+  sessionStorage.removeItem(SESSION_KEY);
+  document.getElementById('cmsApp').classList.remove('visible');
+  document.getElementById('loginScreen').style.display = 'flex';
+  document.getElementById('loginUser').value = '';
+  document.getElementById('loginPass').value = '';
+}
 
-  function renderDashboard() {
-    document.getElementById('statProducts').textContent = products.length;
-    document.getElementById('statInStock').textContent = products.filter(p => p.in_stock).length;
-    document.getElementById('statFeatured').textContent = products.filter(p => p.featured).length;
-    const recent = products.slice(0, 5);
-    document.getElementById('dashRecentBody').innerHTML = recent.map(p => `
-      <tr>
-        <td><img class="cms-product-img" src="${p.image_url}" alt="${p.name}" onerror="this.style.background='var(--cream)'"></td>
-        <td style="font-weight:500;">${p.name}</td>
-        <td>R${p.price.toFixed(2)}</td>
-        <td><span class="badge badge-blue">${p.category}</span></td>
-        <td><span class="badge ${p.in_stock ? 'badge-green' : 'badge-orange'}">${p.in_stock ? 'In Stock' : 'Out of Stock'}</span></td>
-      </tr>`).join('');
+function togglePwVisibility() {
+  const input = document.getElementById('loginPass');
+  const icon = document.getElementById('pwIcon');
+  if (input.type === 'password') {
+    input.type = 'text';
+    icon.className = 'far fa-eye-slash';
+  } else {
+    input.type = 'password';
+    icon.className = 'far fa-eye';
   }
+}
 
-  function renderProducts() {
-    document.getElementById('productsBody').innerHTML = products.map(p => `
-      <tr>
-        <td><img class="cms-product-img" src="${p.image_url}" alt="${p.name}" onerror="this.style.background='var(--cream)'"></td>
-        <td style="font-weight:500;">${p.name}<br><span style="font-size:11px;color:var(--text-light);">${p.sku || ''}</span></td>
-        <td>R${p.price.toFixed(2)}</td>
-        <td style="color:var(--text-light);text-decoration:line-through;">${p.old_price ? 'R'+p.old_price.toFixed(2) : '—'}</td>
-        <td><span class="badge badge-blue">${p.category}</span></td>
-        <td><span class="badge ${p.in_stock ? 'badge-green' : 'badge-orange'}">${p.in_stock ? 'In Stock' : 'Out'}</span></td>
-        <td>${p.featured ? '<span class="badge badge-green">Yes</span>' : '<span class="badge badge-gray">No</span>'}</td>
-        <td>
-          <div class="action-btns">
-            <button class="action-btn" title="Edit" onclick="openProductModal('${p.id}')"><i class="far fa-pencil"></i></button>
-            <button class="action-btn danger" title="Delete" onclick="openDeleteModal('${p.id}','${p.name.replace(/'/g,"\\'")}')"><i class="far fa-trash-alt"></i></button>
-          </div>
-        </td>
-      </tr>`).join('');
-  }
-
-  // ── Product Modal ──
-  function openProductModal(id) {
-    const modal = document.getElementById('productModal');
-    if (id) {
-      const p = products.find(x => x.id == id);
-      document.getElementById('modalTitle').textContent = 'Edit Product';
-      document.getElementById('editProductId').value = id;
-      document.getElementById('pName').value = p.name;
-      document.getElementById('pPrice').value = p.price;
-      document.getElementById('pOldPrice').value = p.old_price || '';
-      document.getElementById('pCategory').value = p.category;
-      document.getElementById('pSku').value = p.sku || '';
-      document.getElementById('pImage').value = p.image_url || '';
-      document.getElementById('pDesc').value = p.description || '';
-      document.getElementById('pStock').checked = p.in_stock;
-      document.getElementById('pFeatured').checked = p.featured;
-      previewImg();
-    } else {
-      document.getElementById('modalTitle').textContent = 'Add Product';
-      document.getElementById('editProductId').value = '';
-      ['pName','pPrice','pOldPrice','pSku','pImage','pDesc'].forEach(id => document.getElementById(id).value = '');
-      document.getElementById('pCategory').value = 'New Arrivals';
-      document.getElementById('pStock').checked = true;
-      document.getElementById('pFeatured').checked = false;
-      document.getElementById('pImgPreview').style.display = 'none';
-    }
-    modal.classList.add('open');
-  }
-  function closeProductModal() { document.getElementById('productModal').classList.remove('open'); }
-
-  function previewImg() {
-    const url = document.getElementById('pImage').value;
-    const preview = document.getElementById('pImgPreview');
-    if (url) { preview.src = url; preview.style.display = 'block'; }
-    else { preview.style.display = 'none'; }
-  }
-
-  function saveProduct() {
-    const id = document.getElementById('editProductId').value;
-    const product = {
-      id: id || String(Date.now()),
-      name: document.getElementById('pName').value,
-      price: parseFloat(document.getElementById('pPrice').value) || 0,
-      old_price: parseFloat(document.getElementById('pOldPrice').value) || null,
-      category: document.getElementById('pCategory').value,
-      sku: document.getElementById('pSku').value,
-      image_url: document.getElementById('pImage').value,
-      description: document.getElementById('pDesc').value,
-      in_stock: document.getElementById('pStock').checked,
-      featured: document.getElementById('pFeatured').checked,
+function saveSettings() {
+  const newUser = document.getElementById('newUser').value.trim();
+  const newPass = document.getElementById('newPass').value;
+  if (newUser || newPass) {
+    const current = getCredentials();
+    const updated = {
+      user: newUser || current.user,
+      pass: newPass || current.pass
     };
-    if (!product.name) { alert('Product name is required.'); return; }
-    if (id) {
-      const idx = products.findIndex(p => p.id == id);
-      products[idx] = product;
-    } else {
-      products.unshift(product);
-    }
-    closeProductModal();
-    renderProducts();
-    renderDashboard();
+    localStorage.setItem('dollar_cms_credentials', JSON.stringify(updated));
+    alert('✓ Settings saved! New credentials active next login.');
+    document.getElementById('newUser').value = '';
+    document.getElementById('newPass').value = '';
+  } else {
+    alert('✓ Settings saved!');
   }
+}
 
-  // ── Delete Modal ──
-  function openDeleteModal(id, name) {
-    deleteTarget = id;
-    document.getElementById('deleteProductName').textContent = name;
-    document.getElementById('deleteModal').classList.add('open');
-  }
-  function closeDeleteModal() { document.getElementById('deleteModal').classList.remove('open'); deleteTarget = null; }
-  function confirmDelete() {
-    products = products.filter(p => p.id != deleteTarget);
-    closeDeleteModal();
-    renderProducts();
-    renderDashboard();
-  }
+/* ════════════════════════
+   SIDEBAR (mobile)
+════════════════════════ */
+function openSidebar() {
+  document.getElementById('cmsSidebar').classList.add('open');
+  document.getElementById('sidebarOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeSidebar() {
+  document.getElementById('cmsSidebar').classList.remove('open');
+  document.getElementById('sidebarOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
 
-  // ── Hero ──
-  document.getElementById('heroImage').addEventListener('input', () => {
-    const url = document.getElementById('heroImage').value;
-    const preview = document.getElementById('heroPreview');
-    if (url) { preview.src = url; preview.style.display = 'block'; }
-    else { preview.style.display = 'none'; }
+/* ════════════════════════
+   TABS
+════════════════════════ */
+document.querySelectorAll('.cms-nav a[data-tab]').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    showTab(link.dataset.tab);
+    closeSidebar();
   });
-  function saveHero() {
-    const msg = document.getElementById('heroSaveMsg');
-    msg.style.display = 'block';
-    setTimeout(() => msg.style.display = 'none', 3000);
+});
+
+function showTab(tab) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.cms-nav a[data-tab]').forEach(l => l.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  const link = document.querySelector(`[data-tab="${tab}"]`);
+  if (link) link.classList.add('active');
+  const titles = { dashboard:'Dashboard', products:'Products', hero:'Hero Banner', settings:'Settings' };
+  document.getElementById('pageTitle').textContent = titles[tab] || tab;
+}
+
+/* ════════════════════════
+   PRODUCTS DATA
+════════════════════════ */
+const LOCAL_PRODUCTS = [
+  {id:'1',name:'Delilah Halter Maxi',price:80.5,old_price:109,category:'New Arrivals',image_url:'https://raw.githubusercontent.com/the-great-M-D/dollar_store/main/assets/media/products/p-1.png',sku:'DLH-001',in_stock:true,featured:true,description:'Elegant halter maxi dress.'},
+  {id:'2',name:'Green Striped Dress',price:72,old_price:100,category:'New Arrivals',image_url:'https://raw.githubusercontent.com/the-great-M-D/dollar_store/main/assets/media/products/p-2.png',sku:'GSD-002',in_stock:true,featured:true,description:'Fresh green striped dress.'},
+  {id:'3',name:'Off Shoulder Dress',price:105,old_price:130,category:'New Arrivals',image_url:'https://raw.githubusercontent.com/the-great-M-D/dollar_store/main/assets/media/products/p-3.png',sku:'OSD-003',in_stock:true,featured:false,description:'Classic off-shoulder silhouette.'},
+  {id:'4',name:'Green Maxi Dress',price:150,old_price:199,category:'New Arrivals',image_url:'https://raw.githubusercontent.com/the-great-M-D/dollar_store/main/assets/media/products/p-4.png',sku:'GMD-004',in_stock:true,featured:false,description:'Floor-length green maxi.'},
+  {id:'5',name:'Authentic Hoodie - Ladies',price:150,old_price:199,category:'Trending',image_url:'https://raw.githubusercontent.com/the-great-M-D/dollar_store/main/assets/media/products/p-5.png',sku:'AHL-005',in_stock:true,featured:true,description:'Cozy ladies hoodie.'},
+  {id:'6',name:'Cross Back Straps',price:50,old_price:79,category:'Trending',image_url:'https://raw.githubusercontent.com/the-great-M-D/dollar_store/main/assets/media/products/p-6.png',sku:'CBS-006',in_stock:true,featured:false,description:'Minimalist cross-back top.'},
+  {id:'7',name:'Floral Print Blouse',price:65,old_price:85,category:'Trending',image_url:'https://raw.githubusercontent.com/the-great-M-D/dollar_store/main/assets/media/products/p-7.png',sku:'FPB-007',in_stock:true,featured:false,description:'Light floral blouse.'},
+  {id:'8',name:'Linen Wide Leg Pants',price:95,old_price:125,category:'Sale',image_url:'https://raw.githubusercontent.com/the-great-M-D/dollar_store/main/assets/media/products/p-8.png',sku:'LWP-008',in_stock:true,featured:true,description:'Relaxed linen trousers.'},
+];
+let products = JSON.parse(localStorage.getItem('dollar_cms_products') || 'null') || [...LOCAL_PRODUCTS];
+let deleteTarget = null;
+
+function saveProductsToStorage() {
+  localStorage.setItem('dollar_cms_products', JSON.stringify(products));
+}
+
+/* ════════════════════════
+   DASHBOARD RENDER
+════════════════════════ */
+function renderDashboard() {
+  document.getElementById('statProducts').textContent = products.length;
+  document.getElementById('statInStock').textContent = products.filter(p => p.in_stock).length;
+  document.getElementById('statFeatured').textContent = products.filter(p => p.featured).length;
+  document.getElementById('dashRecentBody').innerHTML = products.slice(0, 5).map(p => `
+    <tr>
+      <td><img class="cms-product-img" src="${p.image_url}" alt="${p.name}" onerror="this.style.background='var(--cream)'"></td>
+      <td style="font-weight:500;">${p.name}</td>
+      <td>R${p.price.toFixed(2)}</td>
+      <td><span class="badge badge-blue">${p.category}</span></td>
+      <td><span class="badge ${p.in_stock?'badge-green':'badge-orange'}">${p.in_stock?'In Stock':'Out of Stock'}</span></td>
+    </tr>`).join('');
+}
+
+/* ════════════════════════
+   PRODUCTS TABLE
+════════════════════════ */
+function renderProducts() {
+  document.getElementById('productsBody').innerHTML = products.map(p => `
+    <tr>
+      <td><img class="cms-product-img" src="${p.image_url}" alt="${p.name}" onerror="this.style.background='var(--cream)'"></td>
+      <td>
+        <div style="font-weight:500;white-space:nowrap;">${p.name}</div>
+        <div style="font-size:11px;color:var(--text-light);">${p.sku||''}</div>
+      </td>
+      <td style="white-space:nowrap;">R${p.price.toFixed(2)}</td>
+      <td style="color:var(--text-light);text-decoration:line-through;white-space:nowrap;">${p.old_price?'R'+p.old_price.toFixed(2):'—'}</td>
+      <td><span class="badge badge-blue">${p.category}</span></td>
+      <td><span class="badge ${p.in_stock?'badge-green':'badge-orange'}">${p.in_stock?'In Stock':'Out'}</span></td>
+      <td>${p.featured?'<span class="badge badge-green">Yes</span>':'<span class="badge badge-gray">No</span>'}</td>
+      <td>
+        <div class="action-btns">
+          <button class="action-btn" title="Edit" onclick="openProductModal('${p.id}')"><i class="far fa-pencil"></i></button>
+          <button class="action-btn danger" title="Delete" onclick="openDeleteModal('${p.id}','${p.name.replace(/'/g,"\\'")}')"><i class="far fa-trash-alt"></i></button>
+        </div>
+      </td>
+    </tr>`).join('');
+}
+
+/* ════════════════════════
+   PRODUCT MODAL
+════════════════════════ */
+function openProductModal(id) {
+  if (id) {
+    const p = products.find(x => x.id == id);
+    if (!p) return;
+    document.getElementById('modalTitle').textContent = 'Edit Product';
+    document.getElementById('editProductId').value = id;
+    document.getElementById('pName').value = p.name;
+    document.getElementById('pPrice').value = p.price;
+    document.getElementById('pOldPrice').value = p.old_price || '';
+    document.getElementById('pCategory').value = p.category;
+    document.getElementById('pSku').value = p.sku || '';
+    document.getElementById('pImage').value = p.image_url || '';
+    document.getElementById('pDesc').value = p.description || '';
+    document.getElementById('pStock').checked = p.in_stock;
+    document.getElementById('pFeatured').checked = p.featured;
+    previewImg();
+  } else {
+    document.getElementById('modalTitle').textContent = 'Add Product';
+    document.getElementById('editProductId').value = '';
+    ['pName','pPrice','pOldPrice','pSku','pImage','pDesc'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('pCategory').value = 'New Arrivals';
+    document.getElementById('pStock').checked = true;
+    document.getElementById('pFeatured').checked = false;
+    document.getElementById('pImgPreview').style.display = 'none';
+  }
+  document.getElementById('productModal').classList.add('open');
+}
+
+function closeProductModal() {
+  document.getElementById('productModal').classList.remove('open');
+}
+
+function previewImg() {
+  const url = document.getElementById('pImage').value;
+  const preview = document.getElementById('pImgPreview');
+  preview.src = url;
+  preview.style.display = url ? 'block' : 'none';
+}
+
+function saveProduct() {
+  const id = document.getElementById('editProductId').value;
+  const name = document.getElementById('pName').value.trim();
+  if (!name) { alert('Product name is required.'); return; }
+
+  const product = {
+    id: id || String(Date.now()),
+    name,
+    price: parseFloat(document.getElementById('pPrice').value) || 0,
+    old_price: parseFloat(document.getElementById('pOldPrice').value) || null,
+    category: document.getElementById('pCategory').value,
+    sku: document.getElementById('pSku').value.trim(),
+    image_url: document.getElementById('pImage').value.trim(),
+    description: document.getElementById('pDesc').value.trim(),
+    in_stock: document.getElementById('pStock').checked,
+    featured: document.getElementById('pFeatured').checked,
+  };
+
+  if (id) {
+    const idx = products.findIndex(p => p.id == id);
+    products[idx] = product;
+  } else {
+    products.unshift(product);
   }
 
-  // ── Init ──
-  renderDashboard();
+  saveProductsToStorage();
+  closeProductModal();
   renderProducts();
+  renderDashboard();
+}
+
+/* ════════════════════════
+   DELETE MODAL
+════════════════════════ */
+function openDeleteModal(id, name) {
+  deleteTarget = id;
+  document.getElementById('deleteProductName').textContent = name;
+  document.getElementById('deleteModal').classList.add('open');
+}
+function closeDeleteModal() {
+  document.getElementById('deleteModal').classList.remove('open');
+  deleteTarget = null;
+}
+function confirmDelete() {
+  products = products.filter(p => p.id != deleteTarget);
+  saveProductsToStorage();
+  closeDeleteModal();
+  renderProducts();
+  renderDashboard();
+}
+
+/* ════════════════════════
+   HERO
+════════════════════════ */
+function previewHeroImg() {
+  const url = document.getElementById('heroImage').value;
+  const preview = document.getElementById('heroPreview');
+  preview.src = url;
+  preview.style.display = url ? 'block' : 'none';
+}
+function saveHero() {
+  const msg = document.getElementById('heroSaveMsg');
+  msg.style.display = 'block';
+  setTimeout(() => msg.style.display = 'none', 3000);
+}
+
+/* ════════════════════════
+   INIT
+════════════════════════ */
+checkSession();
 </script>
 </body>
 </html>
